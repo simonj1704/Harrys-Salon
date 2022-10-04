@@ -1,5 +1,5 @@
 public class Product {
-    String[] products;
+    private String[] products;
 
     public String[] getProducts() {
         return products;
