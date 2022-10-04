@@ -1,3 +1,3 @@
 public class Vacation {
-    String vacationDay;
+    private String vacationDay;
 }
