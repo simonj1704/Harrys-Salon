@@ -15,4 +15,11 @@ public class DateList {
     public void changeAppointment(String name, int time){
         date.appointments.set(time-1, new TimeSlot(name));
     }
+
+    @Override
+    public String toString() {
+        return "DateList{" +
+                "dates=" + dates +
+                '}';
+    }
 }

@@ -11,7 +11,7 @@ public class Appointments {
     }
     public void changeAppointment(String name, int time){
         Date date1 = dateList.dates.set(date, dateList.dates.get(date));
-        date1.appointments.set(time, new TimeSlot(name));
+        date1.appointments.set(time-1, new TimeSlot(name));
     }
 
     public int getDate() {
@@ -30,8 +30,16 @@ public class Appointments {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "Appointments{" +
+                "dateList=" + dateList +
+                '}';
+    }
+
     public static void main(String[] args) {
         Appointments appointments = new Appointments();
+        appointments.changeAppointment("Harry", 1);
         System.out.println(appointments);
     }
 }
