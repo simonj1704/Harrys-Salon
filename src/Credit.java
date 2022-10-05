@@ -1,7 +1,6 @@
 public class Credit {
     private static boolean hasCredit;
 
-
     public static boolean hasCredit() {
         return hasCredit;
     }
