@@ -11,7 +11,6 @@ public class Date {
     }
 
     public void changeAppointment(String name, int time){
-        appointments.set(time, name);
     }
 
     @Override
