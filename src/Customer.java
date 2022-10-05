@@ -6,11 +6,13 @@ public class Customer {
     public Customer(String name, String appointment, boolean hasCredit){
         setName(name);
         setAppointment(appointment);
-        hasCredit = Credit.hasCredit();
+        hasCredit(hasCredit);
     }
+
     public Customer(){
 
     }
+
     public String getName(){
         return name;
     }
