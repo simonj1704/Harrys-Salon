@@ -7,6 +7,10 @@ public class TimeSlot {
         customerName = "Ledig tid";
     }
 
+    public TimeSlot(String name){
+        setCustomerName(name);
+    }
+
     public String getCustomerName() {
         return customerName;
     }
