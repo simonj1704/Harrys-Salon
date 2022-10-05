@@ -1,12 +1,20 @@
 public class Product {
-    private String[] products;
+    private String product;
+    private int price;
 
-    public String[] getProducts() {
-        return products;
+    public String getProduct() {
+        return product;
     }
 
-    public void setProducts(String[] products) {
-        this.products = products;
+    public void setProduct(String product) {
+        this.product = product;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+    public void setPrice(String product) {
+        this.product = product;
     }
 
 }
