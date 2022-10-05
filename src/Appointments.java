@@ -3,10 +3,15 @@ public class Appointments {
     private String name;
     DateList dateList = new DateList();
 
+    public Appointments(){
+
+    }
+
     public void addAppointment(String name, int time){
     }
     public void changeAppointment(String name, int time){
-        //dateList.dates.set(date, dateList.date.appointments.set(time, new TimeSlot(name))));
+        Date date1 = dateList.dates.set(date, dateList.dates.get(date));
+        date1.appointments.set(time, new TimeSlot(name));
     }
 
     public int getDate() {
@@ -23,5 +28,10 @@ public class Appointments {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public static void main(String[] args) {
+        Appointments appointments = new Appointments();
+        System.out.println(appointments);
     }
 }
