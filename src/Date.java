@@ -20,11 +20,4 @@ public class Date {
                 "appointments=" + appointments +
                 '}';
     }
-
-    public static void main(String[] args) {
-        Date date = new Date();
-        System.out.println(date);
-        date.changeAppointment("Harry", 2);
-        System.out.println(date);
-    }
 }
