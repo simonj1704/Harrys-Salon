@@ -11,6 +11,7 @@ public class Date {
     }
 
     public void changeAppointment(String name, int time){
+        appointments.set(time-1, new TimeSlot(name));
     }
 
     @Override
@@ -22,6 +23,8 @@ public class Date {
 
     public static void main(String[] args) {
         Date date = new Date();
+        System.out.println(date);
+        date.changeAppointment("Harry", 2);
         System.out.println(date);
     }
 }
