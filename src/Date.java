@@ -9,11 +9,6 @@ public class Date {
             appointments.add(timeSlot);
         }
     }
-
-    public void changeAppointment(String name, int time){
-        appointments.set(time-1, new TimeSlot(name));
-    }
-
     @Override
     public String toString() {
         return "Date{" +

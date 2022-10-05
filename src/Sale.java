@@ -31,6 +31,5 @@ public class Sale {
 
         addProduct();
         double totalPrice = haircutPrice + productPrice;
-
     }
 }
