@@ -4,7 +4,7 @@ public class Sale {
     private int numberOfProducts = 0;
     private double productPrice;
     ProductList products = new ProductList();
-    //Customer customer = new Customer();
+    Customer customer = new Customer();
 
     public void addProduct(){
         Product product;
@@ -16,10 +16,10 @@ public class Sale {
         productName = product.getProduct();
     }
 
-    public void checkCredit(){
+    public boolean checkCredit(){
 
+        return customer.hasCredit();
 
-        
     }
 
     
