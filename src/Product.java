@@ -1,6 +1,9 @@
 public class Product {
     private String product;
     private double price;
+    public Product(){
+
+    }
 
     public Product(String product, double price) {
         setProduct(product);
