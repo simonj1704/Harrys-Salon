@@ -17,14 +17,18 @@ public class Menu {
 
 
     void printMenu() {
-        System.out.println("Velkommen til Harrys Salon bookingapplikation");
-        System.out.println("1. Book aftale");
+        System.out.println("Welcome to Harry's Salon. What would you like to do?");
+        System.out.println("1. Book appointment");
+        System.out.println("2. Change appointment");
+        System.out.println("3. Delete appointment");
+        System.out.println("4. Make sale");
+        System.out.println("5. Check finances (REQUIRES PASSWORD!)");
 
     }
 
     int readInput() {
         do {
-            System.out.println("Indtast menupunkt:");
+            System.out.println("Enter a command.");
             if (in.hasNextInt()) {
                 inputNumber = in.nextInt();
                 keepRunning = false;
@@ -40,14 +44,26 @@ public class Menu {
         printMenu();
         do {
             switch (readInput()) {
-                case 1:
-                    System.out.println("Du har valgt 1.");
+                case 1 -> {
+                    System.out.println("You've chosen to book an appointment.");
                     inputIsInt = true;
-                    break;
-                default:
-                    System.out.println("Indtast venligst et tal fra menupunktet.");
+                }
+                case 2 -> {
+                    System.out.println("You've chosen to change an appointment.");
+                    inputIsInt = true;
+                }
+                case 3 -> {
+                    System.out.println("You've chosen to delete an appointment.");
+                    inputIsInt = true;
+                }
+                case 4 -> {
+                    System.out.println("You've chosen to check the finances.");
+                    inputIsInt = true;
+                }
+                default -> {
+                    System.out.println("Please enter a valid number.");
                     inputIsInt = false;
-                    break;
+                }
             }
         } while (!inputIsInt);
     }
