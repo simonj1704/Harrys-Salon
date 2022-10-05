@@ -8,4 +8,7 @@ public class Credit {
     public void hasCredit(boolean hasCredit) {
         this.hasCredit = hasCredit;
     }
+    public boolean getHasCredit() {
+        return this.hasCredit;
+    }
 }
