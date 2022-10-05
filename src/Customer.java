@@ -2,9 +2,11 @@ public class Customer {
     private String name;
     private String appointment;
 
-    public Customer(String name, String appointment){
+
+    public Customer(String name, String appointment, boolean hasCredit){
         setName(name);
         setAppointment(appointment);
+        hasCredit = Credit.hasCredit();
     }
 
     public String getName(){

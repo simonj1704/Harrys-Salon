@@ -1,14 +1,12 @@
 public class Credit {
-    private boolean hasCredit;
+    private static boolean hasCredit;
 
-    public boolean hasCredit() {
+
+    public static boolean hasCredit() {
         return hasCredit;
     }
 
     public void hasCredit(boolean hasCredit) {
         this.hasCredit = hasCredit;
-    }
-    public boolean getHasCredit() {
-        return this.hasCredit;
     }
 }
