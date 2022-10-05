@@ -1,20 +1,28 @@
+import java.util.ArrayList;
+
 public class Date {
-    private String date;
-    private int sale;
+    public TimeSlot timeSlot = new TimeSlot();
+    public ArrayList<TimeSlot> appointments = new ArrayList<TimeSlot>();
 
-    public String getDate() {
-        return date;
+    public Date(){
+        for (int i = 1; i <= 8; i++) {
+            appointments.add(timeSlot);
+        }
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void changeAppointment(String name, int time){
+        appointments.set(time, name);
     }
 
-    public int getSale() {
-        return sale;
+    @Override
+    public String toString() {
+        return "Date{" +
+                "appointments=" + appointments +
+                '}';
     }
 
-    public void setSale(int sale) {
-        this.sale = sale;
+    public static void main(String[] args) {
+        Date date = new Date();
+        System.out.println(date);
     }
 }
