@@ -1,5 +1,9 @@
 public class Main {
-    public static void main(String[] args) {
+
+    void run(){
         System.out.println("Hello world!");
+    }
+    public static void main(String[] args) {
+         new Main().run();
     }
 }
