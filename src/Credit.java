@@ -1,11 +1,11 @@
 public class Credit {
     private boolean hasCredit;
 
-    public boolean isHasCredit() {
+    public boolean hasCredit() {
         return hasCredit;
     }
 
-    public void setHasCredit(boolean hasCredit) {
+    public void hasCredit(boolean hasCredit) {
         this.hasCredit = hasCredit;
     }
     public boolean getHasCredit() {
