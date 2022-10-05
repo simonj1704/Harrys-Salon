@@ -12,14 +12,37 @@ public class Menu {
     int inputNumber;
     boolean keepRunning = true;
 
-
-
-    public Menu(String menuHeader, String leadText, String[] menuItems) {
-        this.menuHeader = menuHeader;
-        this.leadText = leadText;
-        this.menuItems = menuItems;
+    public Menu (){
+        getMenuHeader();
+        getLeadText();
+        getMenuItems();
     }
 
+
+    public String getMenuHeader(){
+        System.out.println("velkommen");
+        return menuHeader;
+    }
+
+    public void setMenuHeader(String menuHeader){
+        this.menuHeader = menuHeader;
+    }
+
+    public String getLeadText(){
+        return leadText;
+    }
+
+    public void setleadText(String leadText){
+        this.leadText = leadText;
+    }
+
+    public String[] getMenuItems(){
+        return menuItems;
+    }
+
+    public void setMenuItems(){
+        this.menuItems = menuItems;
+    }
 
     void printMenu() {
         System.out.println(menuHeader);
@@ -27,7 +50,6 @@ public class Menu {
         //System.out.println(toString()); laver en tostring på menuItems, når  vi kender dem.
 
     }
-
 
     int readInput() {
         do {
@@ -40,5 +62,22 @@ public class Menu {
         } while (keepRunning);
         return inputNumber;
 
+    }
+
+    void menu() {
+        boolean inputIsInt;
+        do {
+            printMenu();
+            switch (readInput()) {
+                case 1:
+                    System.out.println("Du har valgt 1.");
+                    inputIsInt = true;
+                    break;
+                default:
+                    System.out.println("Indtast venligst et tal fra menupunktet.");
+                    inputIsInt = false;
+                    break;
+            }
+        } while (!inputIsInt);
     }
 }
