@@ -2,6 +2,9 @@ import java.util.ArrayList;
 
 public class ProductList {
     public ArrayList<Product> productList = new ArrayList<Product>();
+    Product product = new Product();
+
+
 
     public ProductList(){
         generalProducts();
@@ -10,6 +13,7 @@ public class ProductList {
     public ArrayList<Product> getProductList() {
         return productList;
     }
+
     public void generalProducts(){
         productList.add(new Product("Hårbørste", 249.95));
         productList.add(new Product("Shampoo", 149.95));
