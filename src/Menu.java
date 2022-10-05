@@ -12,7 +12,7 @@ public class Menu {
     int inputNumber;
     boolean keepRunning = true;
 
-    public Menu (){
+    public Menu() {
     }
 
 
