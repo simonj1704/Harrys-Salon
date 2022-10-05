@@ -32,8 +32,7 @@ public class Menu {
             if (in.hasNextInt()) {
                 inputNumber = in.nextInt();
                 keepRunning = false;
-            } else
-                in.nextLine();
+            } else in.nextLine();
         } while (keepRunning);
         return inputNumber;
 
