@@ -56,6 +56,10 @@ public class Menu {
                     inputIsInt = true;
                 }
                 case 4 -> {
+                    System.out.println("You've chosen to make a sale.");
+                    inputIsInt = true;
+                }
+                case 5 -> {
                     System.out.println("You've chosen to check the finances.");
                     inputIsInt = true;
                 }
