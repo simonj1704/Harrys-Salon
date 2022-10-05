@@ -3,16 +3,24 @@ public class Sale {
     private double haircutPrice =  200;
     private int numberOfProducts = 0;
     private double productPrice;
+    private int date;
+    private double totalPrice;
+    private String product;
+    private String productName;
     ProductList products = new ProductList();
     Customer customer = new Customer();
+    DateList dateList = new DateList();
+
+    public Sale(double price, String product){
+        totalPrice = price;
+        this.product = product;
+    }
 
     public void addProduct(){
         Product product;
-        String productName;
 
         product = products.productList.get(1);
         productPrice = product.getPrice();
-
         productName = product.getProduct();
     }
 
@@ -29,7 +37,11 @@ public class Sale {
     }
     public void addSale(){
 
+        date = dateList.checkDate("1/10/2022");
         addProduct();
-        double totalPrice = haircutPrice + productPrice;
+        totalPrice = haircutPrice + productPrice;
+        Sale sale = new Sale(totalPrice, productName);
+        dateList.date.timeSlot.sales.add(date, sale);
+
     }
 }

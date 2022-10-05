@@ -1,8 +1,8 @@
+import java.util.ArrayList;
 
 public class TimeSlot {
     private String customerName;
-    public Sale sale = new Sale();
-
+    public ArrayList<Sale> sales = new ArrayList<>();
     public TimeSlot(){
         customerName = "Ledig tid";
     }
