@@ -12,26 +12,19 @@ public class Menu {
     int inputNumber;
     boolean keepRunning = true;
 
-
-
-    public Menu(String menuHeader, String leadText, String[] menuItems) {
-        this.menuHeader = menuHeader;
-        this.leadText = leadText;
-        this.menuItems = menuItems;
+    public Menu (){
     }
 
 
     void printMenu() {
-        System.out.println(menuHeader);
-        System.out.println(leadText);
-        //System.out.println(toString()); laver en tostring på menuItems, når  vi kender dem.
+        System.out.println("Velkommen til Harrys Salon bookingapplikation");
+        System.out.println("1. Book aftale");
 
     }
 
-
     int readInput() {
         do {
-            System.out.println("Indtast menupunkt");
+            System.out.println("Indtast menupunkt:");
             if (in.hasNextInt()) {
                 inputNumber = in.nextInt();
                 keepRunning = false;
@@ -40,5 +33,22 @@ public class Menu {
         } while (keepRunning);
         return inputNumber;
 
+    }
+
+    void menu() {
+        boolean inputIsInt;
+        printMenu();
+        do {
+            switch (readInput()) {
+                case 1:
+                    System.out.println("Du har valgt 1.");
+                    inputIsInt = true;
+                    break;
+                default:
+                    System.out.println("Indtast venligst et tal fra menupunktet.");
+                    inputIsInt = false;
+                    break;
+            }
+        } while (!inputIsInt);
     }
 }
