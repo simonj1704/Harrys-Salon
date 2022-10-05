@@ -1,10 +1,10 @@
 public class Customer {
-    String name;
-    String appointment;
+    private String name;
+    private String appointment;
 
     public Customer(String name, String appointment){
-        getName();
-        getAppointment();
+        setName(name);
+        setAppointment(appointment);
     }
 
     public String getName(){
@@ -22,4 +22,5 @@ public class Customer {
     public void setAppointment(String appointment){
         this.appointment = appointment;
     }
+
 }
