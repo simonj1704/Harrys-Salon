@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class DateList {
-    public ArrayList<Date> dates = new ArrayList<Date>();
+    public static ArrayList<Date> dates = new ArrayList<Date>();
     public Date date = new Date();
     private int date1;
 
@@ -69,9 +69,6 @@ public class DateList {
             month += 1;
 
         this.date1 = year + month + date1;
-        System.out.println(requestedDate);
-
-
 
         return this.date1;
     }
