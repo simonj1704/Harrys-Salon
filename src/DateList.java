@@ -69,7 +69,9 @@ public class DateList {
             month += 1;
 
         this.date1 = year + month + date1;
-        System.out.println(this.date1);
+        System.out.println(requestedDate);
+
+
 
         return this.date1;
     }
