@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Menu {
 
     Scanner in = new Scanner(System.in);
-
+    Appointments appointments = new Appointments();
     private String menuHeader;
     private String leadText;
     private String[] menuItems;
@@ -44,6 +44,7 @@ public class Menu {
                 case 1 -> {
                     System.out.println("You've chosen to book an appointment.");
                     inputIsInt = true;
+                    bookAppointment();
                 }
                 case 2 -> {
                     System.out.println("You've chosen to change an appointment.");
@@ -67,5 +68,13 @@ public class Menu {
                 }
             }
         } while (!inputIsInt);
+    }
+
+    private void bookAppointment() {
+        System.out.print("Type the date to check: ");
+        String date = in.nextLine();
+        appointments.showAvailableTimes(date);
+        System.out.println("What time do you want to book: ");
+
     }
 }

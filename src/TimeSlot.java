@@ -20,8 +20,6 @@ public class TimeSlot {
 
     @Override
     public String toString() {
-        return "TimeSlot{" +
-                "customerName='" + customerName + '\'' +
-                '}';
+        return customerName;
     }
 }

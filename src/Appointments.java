@@ -58,9 +58,10 @@ public class Appointments {
 
     public static void main(String[] args) {
         Appointments appointments = new Appointments();
-        appointments.changeAppointment(2, "Bob", "20/02/22");
-        appointments.changeAppointment(1, "Harry", "22/02/22");
+        appointments.changeAppointment(2, "Bob", "22/02/22");
+        appointments.changeAppointment(1, "Harry", "20/02/22");
         System.out.println(appointments.showAvailableTimes("20/02/22"));
         System.out.println(Arrays.toString(appointments.showNextFourDays()));
+        System.out.println(appointments.dateList.date.times());
     }
 }
