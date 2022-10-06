@@ -1,4 +1,3 @@
-import java.sql.Time;
 
 public class Vacation {
     DateList dateList = new DateList();
@@ -55,7 +54,6 @@ public class Vacation {
 
         for (int i = 0; i < 8; i++) {
             date1 = DateList.dates.get(checkDate);
-            System.out.println(date1);
             if (!date1.appointments.get(i).getCustomerName().equals("Ledig tid")) {
                 available = false;
                 break;

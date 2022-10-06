@@ -4,7 +4,7 @@ public class Sale {
 
     Scanner in = new Scanner(System.in);
     private boolean hasCredit = false;
-    private double haircutPrice =  200;
+    private double haircutPrice =  200.00;
     private int numberOfProducts = 0;
     private int date;
     private double totalPrice;
