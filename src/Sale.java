@@ -3,8 +3,7 @@ import java.util.Scanner;
 public class Sale {
 
     Scanner in = new Scanner(System.in);
-    private boolean hasCredit = false;
-    private double haircutPrice =  200.00;
+    private double haircutPrice = 200;
     private int numberOfProducts = 0;
     private int date;
     private double totalPrice;
@@ -14,12 +13,12 @@ public class Sale {
     ProductList products = new ProductList();
     DateList dateList = new DateList();
 
-    public Sale(double price, String product){
+    public Sale(double price, String product) {
         totalPrice = price;
         this.product = product;
     }
 
-    public Product addProduct(){
+    public Product addProduct() {
         Product product;
 
         System.out.println(products);
@@ -31,11 +30,7 @@ public class Sale {
         return product;
     }
 
-    public boolean checkCredit(){
-        return checkCredit();
-    }
-    
-    public void checkSale(){
+    public void checkSale() {
 
     }
 

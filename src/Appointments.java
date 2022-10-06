@@ -5,18 +5,18 @@ public class Appointments {
     private String name;
     DateList dateList = new DateList();
 
-    public Appointments(){
+    public Appointments() {
         DateList dateList1 = new DateList();
     }
 
-    public Date showAvailableTimes(String input){
+    public Date showAvailableTimes(String input) {
         setDate(input);
         Date date1;
         date1 = dateList.dates.get(date);
         return date1;
     }
 
-    public Date[] showNextFourDays(){
+    public Date[] showNextFourDays() {
         Date[] date1 = new Date[4];
         date1[0] = dateList.dates.get(date + 1);
         date1[1] = dateList.dates.get(date + 2);
@@ -25,19 +25,19 @@ public class Appointments {
         return date1;
     }
 
-    public void changeAppointment(int time, String name, String input){
+    public void changeAppointment(int time, String name, String input) {
         setDate(input); //TODO add scanner to this
         Date date1;
         date1 = dateList.dates.get(date);
-        date1.appointments.set(time-10, new TimeSlot(name));
+        date1.appointments.set(time - 10, new TimeSlot(name));
     }
 
-    public void deleteAppointment(int time, String input){
+    public void deleteAppointment(int time, String input) {
         setDate(input);
         Date date1;
 
         date1 = dateList.dates.set(date, dateList.dates.get(date));
-        date1.appointments.set(time-10, new TimeSlot("Ledig tid"));
+        date1.appointments.set(time - 10, new TimeSlot("Ledig tid"));
     }
 
 

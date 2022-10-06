@@ -5,8 +5,7 @@ public class ProductList {
     Product product = new Product();
 
 
-
-    public ProductList(){
+    public ProductList() {
         generalProducts();
     }
 
@@ -14,7 +13,7 @@ public class ProductList {
         return productList;
     }
 
-    public void generalProducts(){
+    public void generalProducts() {
         productList.add(new Product("Hårbørste", 249.95));
         productList.add(new Product("Shampoo", 149.95));
         productList.add(new Product("Hårvoks", 179.99));
@@ -22,7 +21,7 @@ public class ProductList {
     }
 
 
-    public void addProduct(String product, double price){
+    public void addProduct(String product, double price) {
         //TODO maybe
     }
 
