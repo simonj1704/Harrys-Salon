@@ -10,7 +10,6 @@ public class Menu {
     private String[] menuItems;
     int inputNumber;
     boolean keepRunning = true;
-    boolean quitSystem = false;
 
     public Menu() {
     }
@@ -42,30 +41,27 @@ public class Menu {
     }
 
     void menu() {
-        boolean inputIsInt;
-        printMenu();
+        boolean keepRunning = false;
         do {
+            printMenu();
             switch (readInput()) {
                 case 1 -> {
                     System.out.println("You've chosen to book an appointment.");
-                    inputIsInt = true;
                     bookAppointment();
                 }
                 case 2 -> {
                     System.out.println("You've chosen to change an appointment.");
-                    inputIsInt = true;
+                    changeAppointment();
                 }
                 case 3 -> {
                     System.out.println("You've chosen to delete an appointment.");
-                    inputIsInt = true;
+                    deleteAppointment();
                 }
                 case 4 -> {
                     System.out.println("You've chosen to make a sale.");
-                    inputIsInt = true;
                 }
                 case 5 -> {
                     System.out.println("You've chosen to check the finances.");
-                    inputIsInt = true;
                 }
                 case 6 -> {
                     System.out.println("You've chosen the vacation menu.");
@@ -74,28 +70,57 @@ public class Menu {
                 }
                 case 9 -> {
                     System.out.println("You've chosen to quit system.");
-                    inputIsInt = true;
-                    quitSystem = true;
+                    keepRunning = true;
                 }
                 default -> {
                     System.out.println("Please enter a valid number.");
-                    inputIsInt = false;
                 }
             }
-        } while (!inputIsInt);
+        } while (!keepRunning);
     }
 
     private void bookAppointment() {
-        System.out.print("Type the date to check: ");
-        String date = in.nextLine();
+        String date = inputDate();
         System.out.println(appointments.showAvailableTimes(date));
-        System.out.println("What time do you want to book: ");
+        System.out.print("What time do you want to book: ");
         int time = in.nextInt();
         in.nextLine();
-        System.out.println("What is the name of the Customer: ");
-        String name = in.nextLine();
+        String name = inputName();
         appointments.changeAppointment(time, name,date);
         System.out.println("The time has been booked");
+        //TODO make it so you cant change appointments
+    }
+
+    private void changeAppointment() {
+        String date = inputDate();
+        System.out.println(appointments.showAvailableTimes(date));
+        System.out.print("What time do you want to change: ");
+        int time = in.nextInt();
+        in.nextLine();
+        String name = inputName();
+        appointments.changeAppointment(time, name,date);
+        System.out.println("The time has been changed");
+    }
+
+    private void deleteAppointment(){
+        String date = inputDate();
+        System.out.println(appointments.showAvailableTimes(date));
+        System.out.println("What time do you want to delete: ");
+        int time = in.nextInt();
+        appointments.deleteAppointment(time,date);
+        System.out.println("The time has been deleted");
+    }
+
+    private String inputDate(){
+        System.out.print("Type the date to check D/M/Y: ");
+        String date = in.nextLine();
+        return date;
+    }
+
+    private String inputName(){
+        System.out.print("What is the name of the Customer: ");
+        String name = in.nextLine();
+        return name;
     }
     private void vacationMenu() {
         System.out.println("Vacation Menu:");
