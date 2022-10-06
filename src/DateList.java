@@ -5,15 +5,15 @@ public class DateList {
     public Date date = new Date();
     private int date1;
 
-    public DateList(){
-       addAllDates();
+    public DateList() {
+        addAllDates();
     }
 
-    public void addDate(){
+    public void addDate() {
         dates.add(new Date());
     }
 
-    public void addAllDates(){
+    public void addAllDates() {
         for (int i = 0; i < 2000; i++) {
             dates.add(new Date());
         }
