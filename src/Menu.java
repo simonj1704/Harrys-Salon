@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
@@ -8,7 +7,6 @@ public class Menu {
     private String menuHeader;
     private String leadText;
     private String[] menuItems;
-
     int inputNumber;
     boolean keepRunning = true;
 

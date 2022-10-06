@@ -34,9 +34,9 @@ public class Sale {
 
 
     }
-    public void addSale(){
+    public void addSale(String input){
 
-        date = dateList.checkDate("1/10/2022");
+        date = dateList.checkDate(input);
         addProduct();
         totalPrice = haircutPrice + productPrice;
         Sale sale = new Sale(totalPrice, productName);
