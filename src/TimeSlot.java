@@ -20,6 +20,12 @@ public class TimeSlot {
 
     @Override
     public String toString() {
-        return customerName;
+        String output;
+        if(customerName.equals("Ledig tid")){
+            output = ConsoleColors.GREEN_BRIGHT + customerName + ConsoleColors.RESET;
+        } else {
+            output = ConsoleColors.RED_BRIGHT + ConsoleColors.RED_BOLD + customerName + ConsoleColors.RESET;
+        }
+        return output;
     }
 }

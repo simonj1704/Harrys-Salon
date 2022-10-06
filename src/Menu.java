@@ -75,6 +75,9 @@ public class Menu {
         String date = in.nextLine();
         appointments.showAvailableTimes(date);
         System.out.println("What time do you want to book: ");
+        int time = in.nextInt();
+        in.nextLine();
+        appointments.changeAppointment(time, in.nextLine(),date);
 
     }
 }
