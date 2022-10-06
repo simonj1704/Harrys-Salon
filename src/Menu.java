@@ -49,6 +49,7 @@ public class Menu {
                 }
                 case 2 -> {
                     System.out.println("You've chosen to change an appointment.");
+                    changeAppointment();
                 }
                 case 3 -> {
                     System.out.println("You've chosen to delete an appointment.");
@@ -80,6 +81,18 @@ public class Menu {
         String name = inputName();
         appointments.changeAppointment(time, name,date);
         System.out.println("The time has been booked");
+        //TODO make it so you cant change appointments
+    }
+
+    private void changeAppointment() {
+        String date = inputDate();
+        System.out.println(appointments.showAvailableTimes(date));
+        System.out.print("What time do you want to change: ");
+        int time = in.nextInt();
+        in.nextLine();
+        String name = inputName();
+        appointments.changeAppointment(time, name,date);
+        System.out.println("The time has been changed");
     }
 
     private void deleteAppointment(){
@@ -93,6 +106,7 @@ public class Menu {
 
     private String inputDate(){
         System.out.print("Type the date to check D/M/Y: ");
+        if (in.hasNextLine() != "")
         String date = in.nextLine();
         return date;
     }

@@ -37,6 +37,7 @@ public class Appointments {
     public void deleteAppointment(int time, String input){
         setDate(input);
         Date date1;
+
         date1 = dateList.dates.set(date, dateList.dates.get(date));
         date1.appointments.set(time-10, new TimeSlot("Ledig tid"));
     }
