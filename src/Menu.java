@@ -1,7 +1,8 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Menu {
-
+    private String name;
     Scanner in = new Scanner(System.in);
     Appointments appointments = new Appointments();
     Vacation vacation = new Vacation();
@@ -37,7 +38,6 @@ public class Menu {
             } else in.nextLine();
         } while (keepRunning);
         return inputNumber;
-
     }
 
     void menu() {
@@ -84,7 +84,7 @@ public class Menu {
         System.out.print("What time do you want to book: ");
         int time = in.nextInt();
         in.nextLine();
-        String name = inputName();
+        name = inputName();
         appointments.changeAppointment(time, name,date);
         System.out.println("The time has been booked");
         //TODO make it so you cant change appointments
@@ -110,17 +110,25 @@ public class Menu {
         System.out.println("The time has been deleted");
     }
 
+    private int inputTime(){
+        System.out.print("Type the timeslot");
+        int time = in.nextInt();
+        return time;
+
+    }
+
     private String inputDate(){
         System.out.print("Type the date to check D/M/Y: ");
         String date = in.nextLine();
         return date;
     }
 
-    private String inputName(){
+    public String inputName(){
         System.out.print("What is the name of the Customer: ");
-        String name = in.nextLine();
+        name = in.nextLine();
         return name;
     }
+
     private void vacationMenu() {
         System.out.println("Vacation Menu:");
         System.out.println("1. Book Vacation.");
