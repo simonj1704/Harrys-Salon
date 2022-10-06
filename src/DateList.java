@@ -20,38 +20,55 @@ public class DateList {
     }
 
     public int checkDate(String requestedDate) {
-        int yearTwoThousand = 7306;
-        int normalYearLength = 365;
-        int leapYearLength = 366;
-
-
         String[] vacationDate = requestedDate.split("/");
-        int year = Integer.parseInt(vacationDate[2]);
+        int yearTwoThousand = 8030;
+        int normalYearLength = 365;
+        int year = Integer.parseInt(vacationDate[2]) * normalYearLength - yearTwoThousand;
         int month = Integer.parseInt(vacationDate[1]);
         int date1 = Integer.parseInt(vacationDate[0]);
-        int year1;
-
-        if (year % 4 == 0) {
-            year1 = (year * leapYearLength) - yearTwoThousand;
-        } else {
-            year1 = (year * normalYearLength) - yearTwoThousand;
-        }
 
         switch (month) {
-            case 1, 3, 5, 7, 8, 10, 12:
-                month *= 31;
+            case 1:
+                month = 0;
                 break;
             case 2:
-                if (year % 4 == 0)
-                    month *= 29;
-                else
-                    month *= 28;
+                month = 31;
                 break;
-            case 4, 6, 9, 11:
-                month *= 30;
+            case 3:
+                month = 59;
+                break;
+            case 4:
+                month = 90;
+                break;
+            case 5:
+                month = 120;
+                break;
+            case 6:
+                month = 151;
+                break;
+            case 7:
+                month = 181;
+                break;
+            case 8:
+                month = 212;
+                break;
+            case 9:
+                month = 243;
+                break;
+            case 10:
+                month = 273;
+                break;
+            case 11:
+                month = 304;
+                break;
+            case 12:
+                month = 334;
                 break;
         }
-        this.date1 = year1 + month + date1;
+        if (Integer.parseInt(vacationDate[2]) % 4 == 0)
+            month += 1;
+
+        this.date1 = year + month + date1;
         System.out.println(this.date1);
 
         return this.date1;
