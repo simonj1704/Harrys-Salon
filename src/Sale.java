@@ -12,7 +12,6 @@ public class Sale {
     private String productName;
     boolean askAgain = true;
     ProductList products = new ProductList();
-    Customer customer = new Customer();
     DateList dateList = new DateList();
 
     public Sale(double price, String product){
@@ -30,13 +29,6 @@ public class Sale {
         System.out.println("Which item do you want to add?");
     }
 
-    public boolean checkCredit(){
-
-        return customer.hasCredit();
-
-    }
-
-    
     public void checkSale(){
 
     }
