@@ -1,4 +1,5 @@
 public class Vacation {
+    DateList dateList = new DateList();
     private String vacationDay;
 
     public String getVacationDay() {
@@ -9,39 +10,20 @@ public class Vacation {
         this.vacationDay = vacationDay;
     }
 
-    public void checkDate(String vacationDay) {
-        Date date = new Date();
-        int yearTwoThousand = 7306;
-        int normalYearLength = 365;
-        int leapYearLength = 366;
+    public boolean checkVacationDate(String requestedDate) {
+        int numb;
+        boolean available = true;
+        numb = dateList.checkDate(requestedDate);
+        System.out.println(dateList.dates.get(numb));
 
-        String[] vacationDate = vacationDay.split("/");
-        int year = Integer.parseInt(vacationDate[2]);
-        int month = Integer.parseInt(vacationDate[1]);
-        int date1 = Integer.parseInt(vacationDate[0]);
-        int socket1;
+        for (int i = 0; i < 8; i++) {
+            TimeSlot timeSlot = dateList.date.appointments.get(i);
+            if (!timeSlot.getCustomerName().equals("Ledig tid")) {
+                available = false;
+                break;
+            }
 
-        if (year % 4 == 0) {
-            socket1 = (year * leapYearLength) - yearTwoThousand;
-        } else {
-            socket1 = (year * normalYearLength) - yearTwoThousand;
         }
-
-        switch (month) {
-            case 1, 3, 5, 7, 8, 10, 12:
-                month *= 31;
-                break;
-            case 2:
-                if (year % 4 == 0)
-                    month *= 29;
-                else
-                    month *= 28;
-                break;
-            case 4, 6, 9, 11:
-                month *= 30;
-                break;
-        }
-        System.out.println(socket1 + month + date1);
-
+        return available;
     }
 }
