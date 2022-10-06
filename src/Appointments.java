@@ -3,28 +3,23 @@ public class Appointments {
     private String name;
     DateList dateList = new DateList();
 
-    public Appointments(){
-
-    }
-
-    public void changeAppointment(int time, String name){
+    //TODO how to make the system work.
+    public void changeAppointment(int time, String name, String input){
+        setDate(input); //TODO add scanner to this
         Date date1;
         date1 = dateList.dates.set(date, dateList.dates.get(date));
         date1.appointments.set(time-1, new TimeSlot(name));
     }
 
-    public void deleteAppointment(int time){
+    public void deleteAppointment(int time, String input){
+        setDate(input);
         Date date1;
         date1 = dateList.dates.set(date, dateList.dates.get(date));
         date1.appointments.set(time-1, new TimeSlot("Ledig tid"));
     }
 
-    public int getDate() {
-        return date;
-    }
-
-    public void setDate(int date) {
-        this.date = date;
+    public void setDate(String input) {
+        date = dateList.checkDate(input);
     }
 
     public String getName() {
@@ -44,11 +39,8 @@ public class Appointments {
 
     public static void main(String[] args) {
         Appointments appointments = new Appointments();
-        appointments.changeAppointment(2, "Bob");
-        appointments.changeAppointment(1, "Harry");
-        System.out.println(appointments);
-        appointments.deleteAppointment(2);
-        appointments.changeAppointment(1,"Mikkel");
+        appointments.changeAppointment(2, "Bob", "20/02/22");
+        appointments.changeAppointment(1, "Harry", "20/03/22");
         System.out.println(appointments);
     }
 }

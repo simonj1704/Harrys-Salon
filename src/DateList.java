@@ -6,11 +6,17 @@ public class DateList {
     private int date1;
 
     public DateList(){
-        addDate();
+       addAllDates();
     }
 
     public void addDate(){
         dates.add(new Date());
+    }
+
+    public void addAllDates(){
+        for (int i = 0; i < 2000; i++) {
+            dates.add(new Date());
+        }
     }
 
     public int checkDate(String requestedDate) {
