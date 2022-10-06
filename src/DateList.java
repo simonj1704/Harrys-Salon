@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class DateList {
-    public ArrayList<Date> dates = new ArrayList<Date>();
+    public static ArrayList<Date> dates = new ArrayList<Date>();
     public Date date = new Date();
     private int date1;
 

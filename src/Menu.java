@@ -106,7 +106,6 @@ public class Menu {
 
     private String inputDate(){
         System.out.print("Type the date to check D/M/Y: ");
-        if (in.hasNextLine() != "")
         String date = in.nextLine();
         return date;
     }
