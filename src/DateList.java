@@ -56,6 +56,7 @@ public class DateList {
 
         return this.date1;
     }
+    //TODO do we need to change this?
 
     @Override
     public String toString() {

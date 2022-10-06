@@ -1,9 +1,28 @@
+import java.util.Arrays;
+
 public class Appointments {
     private int date;
     private String name;
     DateList dateList = new DateList();
-
+    //TODO where to make a filter
     //TODO how to make the system work.
+
+    public Date showAvailableTimes(String input){
+        setDate(input);
+        Date date1;
+        date1 = dateList.dates.get(date);
+        return date1;
+    }
+
+    public Date[] showNextFourDays(){
+        Date[] date1 = new Date[4];
+        date1[0] = dateList.dates.get(date + 1);
+        date1[1] = dateList.dates.get(date + 2);
+        date1[2] = dateList.dates.get(date + 3);
+        date1[3] = dateList.dates.get(date + 4);
+        return date1;
+    }
+
     public void changeAppointment(int time, String name, String input){
         setDate(input); //TODO add scanner to this
         Date date1;
@@ -41,6 +60,7 @@ public class Appointments {
         Appointments appointments = new Appointments();
         appointments.changeAppointment(2, "Bob", "20/02/22");
         appointments.changeAppointment(1, "Harry", "20/03/22");
-        System.out.println(appointments);
+        System.out.println(appointments.showAvailableTimes("20/03/22"));
+        System.out.println(Arrays.toString(appointments.showNextFourDays()));
     }
 }
