@@ -9,7 +9,6 @@ public class Menu {
     private String[] menuItems;
     int inputNumber;
     boolean keepRunning = true;
-    boolean quitSystem = false;
 
     public Menu() {
     }
@@ -40,42 +39,35 @@ public class Menu {
     }
 
     void menu() {
-        boolean inputIsInt;
-        printMenu();
+        boolean keepRunning = false;
         do {
+            printMenu();
             switch (readInput()) {
                 case 1 -> {
                     System.out.println("You've chosen to book an appointment.");
-                    inputIsInt = true;
                     bookAppointment();
                 }
                 case 2 -> {
                     System.out.println("You've chosen to change an appointment.");
-                    inputIsInt = true;
                 }
                 case 3 -> {
                     System.out.println("You've chosen to delete an appointment.");
-                    inputIsInt = true;
                 }
                 case 4 -> {
                     System.out.println("You've chosen to make a sale.");
-                    inputIsInt = true;
                 }
                 case 5 -> {
                     System.out.println("You've chosen to check the finances.");
-                    inputIsInt = true;
                 }
                 case 9 -> {
                     System.out.println("You've chosen to quit system.");
-                    inputIsInt = true;
-                    quitSystem = true;
+                    keepRunning = true;
                 }
                 default -> {
                     System.out.println("Please enter a valid number.");
-                    inputIsInt = false;
                 }
             }
-        } while (!inputIsInt);
+        } while (!keepRunning);
     }
 
     private void bookAppointment() {
