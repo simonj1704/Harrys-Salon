@@ -9,8 +9,6 @@ public class Appointments {
         DateList dateList1 = new DateList();
     }
 
-    //TODO where to make a filter
-    //TODO how to make the system work.
     public Date showAvailableTimes(String input){
         setDate(input);
         Date date1;
@@ -42,6 +40,7 @@ public class Appointments {
         date1.appointments.set(time-10, new TimeSlot("Ledig tid"));
     }
 
+
     public void setDate(String input) {
         date = dateList.checkDate(input);
     }
@@ -54,6 +53,9 @@ public class Appointments {
         this.name = name;
     }
 
+    public int getDate(){
+        return date;
+    }
     @Override
     public String toString() {
         return "Appointments{" +

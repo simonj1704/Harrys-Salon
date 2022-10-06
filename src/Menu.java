@@ -84,10 +84,14 @@ public class Menu {
         System.out.print("What time do you want to book: ");
         int time = in.nextInt();
         in.nextLine();
+        Date date1 = DateList.dates.get(appointments.getDate());
+        if(!date1.appointments.get(time -10).getCustomerName().equals("Ledig tid")){
+            System.out.println("Unable to book this time");
+        } else {
         name = inputName();
-        appointments.changeAppointment(time, name,date);
+        appointments.changeAppointment(time, name, date);
         System.out.println("The time has been booked");
-        //TODO make it so you cant change appointments
+        }
     }
 
     private void changeAppointment() {
