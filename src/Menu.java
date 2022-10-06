@@ -79,16 +79,26 @@ public class Menu {
     }
 
     private void bookAppointment() {
-        System.out.print("Type the date to check: ");
-        String date = in.nextLine();
+        String date = inputDate();
         System.out.println(appointments.showAvailableTimes(date));
         System.out.println("What time do you want to book: ");
         int time = in.nextInt();
         in.nextLine();
-        System.out.println("What is the name of the Customer: ");
-        String name = in.nextLine();
+        String name = inputName();
         appointments.changeAppointment(time, name,date);
         System.out.println("The time has been booked");
+    }
+
+    private String inputDate(){
+        System.out.print("Type the date to check D/M/Y: ");
+        String date = in.nextLine();
+        return date;
+    }
+
+    private String inputName(){
+        System.out.println("What is the name of the Customer: ");
+        String name = in.nextLine();
+        return name;
     }
 
     //TODO make method for checking invalid date
