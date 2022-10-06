@@ -1,5 +1,6 @@
 public class Product {
     private String product;
+    private boolean hasCredit;
     private double price;
     public Product(){
 
@@ -10,6 +11,18 @@ public class Product {
         setPrice(price);
     }
 
+    public Product(String product, boolean hasCredit){
+        setProduct(product);
+        setHasCredit(hasCredit);
+    }
+
+    public boolean hasCredit(){
+        return hasCredit;
+    }
+
+    public void setHasCredit(Boolean hasCredit){
+        this.hasCredit = hasCredit;
+    }
 
     public String getProduct() {
         return product;

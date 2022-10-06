@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Sale {
 
     Scanner in = new Scanner(System.in);
+    private boolean hasCredit = false;
     private double haircutPrice =  200;
     private int numberOfProducts = 0;
     private int date;
@@ -11,7 +12,6 @@ public class Sale {
     private String productName;
     boolean askAgain = true;
     ProductList products = new ProductList();
-    Customer customer = new Customer();
     DateList dateList = new DateList();
 
     public Sale(double price, String product){
@@ -32,12 +32,13 @@ public class Sale {
     }
 
     public boolean checkCredit(){
-        return customer.hasCredit();
+        return checkCredit();
     }
     
     public void checkSale(){
 
     }
+
     public void addSale(String inputDate, int time) {
         Sale sale = new Sale(totalPrice, productName);
         Date date1;

@@ -18,7 +18,9 @@ public class ProductList {
         productList.add(new Product("Hårbørste", 249.95));
         productList.add(new Product("Shampoo", 149.95));
         productList.add(new Product("Hårvoks", 179.99));
+        productList.add(new Product("Credit", false));
     }
+
 
     public void addProduct(String product, double price){
         //TODO maybe
