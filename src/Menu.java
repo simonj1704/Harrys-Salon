@@ -52,6 +52,7 @@ public class Menu {
                 }
                 case 3 -> {
                     System.out.println("You've chosen to delete an appointment.");
+                    deleteAppointment();
                 }
                 case 4 -> {
                     System.out.println("You've chosen to make a sale.");
@@ -73,12 +74,21 @@ public class Menu {
     private void bookAppointment() {
         String date = inputDate();
         System.out.println(appointments.showAvailableTimes(date));
-        System.out.println("What time do you want to book: ");
+        System.out.print("What time do you want to book: ");
         int time = in.nextInt();
         in.nextLine();
         String name = inputName();
         appointments.changeAppointment(time, name,date);
         System.out.println("The time has been booked");
+    }
+
+    private void deleteAppointment(){
+        String date = inputDate();
+        System.out.println(appointments.showAvailableTimes(date));
+        System.out.println("What time do you want to delete: ");
+        int time = in.nextInt();
+        appointments.deleteAppointment(time,date);
+        System.out.println("The time has been deleted");
     }
 
     private String inputDate(){
@@ -88,7 +98,7 @@ public class Menu {
     }
 
     private String inputName(){
-        System.out.println("What is the name of the Customer: ");
+        System.out.print("What is the name of the Customer: ");
         String name = in.nextLine();
         return name;
     }
