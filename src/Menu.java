@@ -65,7 +65,6 @@ public class Menu {
                 }
                 case 6 -> {
                     System.out.println("You've chosen the vacation menu.");
-                    inputIsInt = true;
                     vacationMenu();
                 }
                 case 9 -> {
@@ -109,6 +108,13 @@ public class Menu {
         int time = in.nextInt();
         appointments.deleteAppointment(time,date);
         System.out.println("The time has been deleted");
+    }
+
+    private int inputTime(){
+        System.out.print("Type the timeslot");
+        int time = in.nextInt();
+        return time;
+
     }
 
     private String inputDate(){

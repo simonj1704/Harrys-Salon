@@ -5,7 +5,6 @@ public class Sale {
     Scanner in = new Scanner(System.in);
     private double haircutPrice =  200;
     private int numberOfProducts = 0;
-    private double productPrice;
     private int date;
     private double totalPrice;
     private String product;
@@ -20,45 +19,45 @@ public class Sale {
         this.product = product;
     }
 
-    public void addProduct(){
+    public Product addProduct(){
         Product product;
-        product = products.productList.get(1);
-        productPrice = product.getPrice();
-        productName = product.getProduct();
 
         System.out.println(products);
         System.out.println("Which item do you want to add?");
+        int productChoice = in.nextInt();
+        in.nextLine();
+
+        product = products.getProductList().get(productChoice);
+        return product;
     }
 
     public boolean checkCredit(){
-
         return customer.hasCredit();
-
     }
-
     
     public void checkSale(){
 
     }
     public void addSale(String inputDate, int time) {
-        String addSale = in.nextLine();
-
-        totalPrice = haircutPrice + productPrice;
         Sale sale = new Sale(totalPrice, productName);
-        dateList.date.timeSlot.sales.add(time, sale);
-        date = dateList.checkDate(inputDate);
         Date date1;
-        date1 = dateList.dates.set(date, dateList.dates.get(date));
-
+        Product product;
+        double productPrice = 0;
+        String productName;
+        String addSale;
 
         System.out.println("Do you want to add a product? yes/no");
+        addSale = in.nextLine();
 
         if (addSale.equals("yes")) {
-            addProduct();
-            date1.timeSlot.sales.add(time, sale);
-        } else if (addSale.equals("no"))
-            date1.timeSlot.sales.add(time, sale);
-        else
-            System.out.println("Type yes or no");
+            product = addProduct();
+            productPrice = product.getPrice();
+            productName = product.getProduct();
+        }
+
+        dateList.date.timeSlot.sales.add(time, sale);
+        date = dateList.checkDate(inputDate);
+        date1 = dateList.dates.set(date, dateList.dates.get(date));
+        totalPrice = haircutPrice + productPrice;
     }
 }
