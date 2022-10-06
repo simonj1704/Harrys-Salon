@@ -1,5 +1,4 @@
 public class Sale {
-
     private double haircutPrice =  200;
     private int numberOfProducts = 0;
     private double productPrice;
