@@ -65,7 +65,6 @@ public class Menu {
                 }
                 case 6 -> {
                     System.out.println("You've chosen the vacation menu.");
-                    inputIsInt = true;
                     vacationMenu();
                 }
                 case 9 -> {
@@ -145,6 +144,14 @@ public class Menu {
                 System.out.println("You've chosen to Delete Vacation");
                 System.out.println("Enter vacation date you want deleted. 'DD/MM/YY'");
                 String requestedDate = in.nextLine();
+                boolean placedVacation = vacation.checkVacationPlaced(requestedDate);
+                if (placedVacation) {
+                    vacation.deleteVacation(requestedDate);
+                    System.out.println("Vacation on the: " + requestedDate + " has been removed.");
+                } else {
+                    System.out.println("Failed. Date has not been chosen for vacation.");
+                }
+
             }
         }
 

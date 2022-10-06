@@ -15,22 +15,48 @@ public class Vacation {
     public void bookVacation(String input){
         Date date1;
         int numb = dateList.checkDate(input);
-        date1 = dateList.dates.get(numb);
-        date1.appointments.set(0, new TimeSlot("FERIE"));
-        System.out.println(dateList.dates.get(numb));
+        date1 = DateList.dates.get(numb);
         for (int i = 0; i < 8; i++) {
             date1.appointments.set(i, new TimeSlot("FERIE"));
         }
+        System.out.println(DateList.dates.get(numb));
     }
-    public boolean checkVacationDate(String requestedDate) {
-        int numb;
+
+    public void deleteVacation(String input){
+        Date date1;
+        int numb = dateList.checkDate(input);
+        date1 = DateList.dates.get(numb);
+        for (int i = 0; i < 8; i++) {
+            date1.appointments.set(i, new TimeSlot("Ledig tid"));
+        }
+        System.out.println(DateList.dates.get(numb));
+
+    }
+
+    public boolean checkVacationPlaced(String requestedDate) {
         boolean available = true;
-        numb = dateList.checkDate(requestedDate);
-        System.out.println(dateList.dates.get(numb));
+        int checkDate = dateList.checkDate(requestedDate);
+        Date date1 ;
 
         for (int i = 0; i < 8; i++) {
-            TimeSlot timeSlot = dateList.date.appointments.get(i);
-            if (!timeSlot.getCustomerName().equals("Ledig tid")) {
+            date1 = DateList.dates.get(checkDate);
+            if (!date1.appointments.get(i).getCustomerName().equals("FERIE")) {
+                available = false;
+                break;
+            }
+        }
+        return available;
+    }
+
+    public boolean checkVacationDate(String requestedDate) {
+        boolean available = true;
+        int checkDate = dateList.checkDate(requestedDate);
+        Date date1 ;
+
+        for (int i = 0; i < 8; i++) {
+            date1 = DateList.dates.get(checkDate);
+            System.out.println(date1);
+            if (!date1.appointments.get(i).getCustomerName().equals("Ledig tid")) {
                 available = false;
                 break;
             }
