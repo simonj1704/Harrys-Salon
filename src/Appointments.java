@@ -4,9 +4,13 @@ public class Appointments {
     private int date;
     private String name;
     DateList dateList = new DateList();
+
+    public Appointments(){
+        DateList dateList1 = new DateList();
+    }
+
     //TODO where to make a filter
     //TODO how to make the system work.
-
     public Date showAvailableTimes(String input){
         setDate(input);
         Date date1;
@@ -27,14 +31,14 @@ public class Appointments {
         setDate(input); //TODO add scanner to this
         Date date1;
         date1 = dateList.dates.set(date, dateList.dates.get(date));
-        date1.appointments.set(time-1, new TimeSlot(name));
+        date1.appointments.set(time-10, new TimeSlot(name));
     }
 
     public void deleteAppointment(int time, String input){
         setDate(input);
         Date date1;
         date1 = dateList.dates.set(date, dateList.dates.get(date));
-        date1.appointments.set(time-1, new TimeSlot("Ledig tid"));
+        date1.appointments.set(time-10, new TimeSlot("Ledig tid"));
     }
 
     public void setDate(String input) {

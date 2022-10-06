@@ -9,6 +9,7 @@ public class Menu {
     private String[] menuItems;
     int inputNumber;
     boolean keepRunning = true;
+    boolean quitSystem = false;
 
     public Menu() {
     }
@@ -21,6 +22,7 @@ public class Menu {
         System.out.println("3. Delete appointment");
         System.out.println("4. Make sale");
         System.out.println("5. Check finances (REQUIRES PASSWORD!)");
+        System.out.println("9. QUIT SYSTEM");
 
     }
 
@@ -29,6 +31,7 @@ public class Menu {
             System.out.println("Enter a command.");
             if (in.hasNextInt()) {
                 inputNumber = in.nextInt();
+                in.nextLine();
                 keepRunning = false;
             } else in.nextLine();
         } while (keepRunning);
@@ -62,6 +65,11 @@ public class Menu {
                     System.out.println("You've chosen to check the finances.");
                     inputIsInt = true;
                 }
+                case 9 -> {
+                    System.out.println("You've chosen to quit system.");
+                    inputIsInt = true;
+                    quitSystem = true;
+                }
                 default -> {
                     System.out.println("Please enter a valid number.");
                     inputIsInt = false;
@@ -73,11 +81,15 @@ public class Menu {
     private void bookAppointment() {
         System.out.print("Type the date to check: ");
         String date = in.nextLine();
-        appointments.showAvailableTimes(date);
+        System.out.println(appointments.showAvailableTimes(date));
         System.out.println("What time do you want to book: ");
         int time = in.nextInt();
         in.nextLine();
-        appointments.changeAppointment(time, in.nextLine(),date);
-
+        System.out.println("What is the name of the Customer: ");
+        String name = in.nextLine();
+        appointments.changeAppointment(time, name,date);
+        System.out.println("The time has been booked");
     }
+
+    //TODO make method for checking invalid date
 }

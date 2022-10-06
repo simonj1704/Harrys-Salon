@@ -2,7 +2,9 @@ public class Main {
     Menu menu = new Menu();
 
     void run() {
-        menu.menu();
+        do {
+            menu.menu();
+        } while (!menu.quitSystem);
 
     }
 

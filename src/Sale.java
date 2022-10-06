@@ -35,7 +35,6 @@ public class Sale {
 
     }
     public void addSale(String input){
-
         date = dateList.checkDate(input);
         addProduct();
         totalPrice = haircutPrice + productPrice;
