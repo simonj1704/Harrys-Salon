@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Sale {
-    Scanner in = new Scanner(System.in);
-    private double haircutPrice = 200;
-    private int date;
-    private double totalPrice;
-    ProductList products = new ProductList();
+    static Scanner in = new Scanner(System.in);
+    private static double haircutPrice = 200;
+    private static int date;
+    private static double totalPrice;
+    static ProductList products = new ProductList();
     DateList dateList = new DateList();
 
 
@@ -14,7 +14,7 @@ public class Sale {
 
     }
 
-    public Product addProduct() {
+    public static Product addProduct() {
         Product product;
 
         System.out.println(products);
@@ -26,7 +26,7 @@ public class Sale {
         return product;
     }
 
-    public String checkSale(String inputDate) {
+    public static String checkSale(String inputDate) {
         setDate(inputDate);
         Date date1;
         date1 = DateList.dates.get(date);
@@ -34,7 +34,7 @@ public class Sale {
         return output;
     }
 
-    public void addSale(String inputDate, int time) {
+    public static void addSale(String inputDate, int time) {
         ArrayList<String> productNames = new ArrayList<String>();
         Product product;
         double productPrice = 0;

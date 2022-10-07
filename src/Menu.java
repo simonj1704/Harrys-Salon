@@ -9,6 +9,8 @@ public class Menu {
     public Menu() {
     }
 
+    Appointments appointment = new Appointments();
+
     void printMenu() {
         System.out.println("Welcome to Harry's Salon. What would you like to do?");
         System.out.println("1. Book appointment");
@@ -40,15 +42,15 @@ public class Menu {
             switch (readInput()) {
                 case 1 -> {
                     System.out.println("You've chosen to book an appointment.");
-                    Appointments.bookAppointment();
+                    appointment.bookAppointment();
                 }
                 case 2 -> {
                     System.out.println("You've chosen to change an appointment.");
-                    Appointments.changeAppointment();
+                    appointment.changeAppointment();
                 }
                 case 3 -> {
                     System.out.println("You've chosen to delete an appointment.");
-                    Appointments.deleteAppointment();
+                    appointment.deleteAppointment();
                 }
                 case 4 -> {
                     System.out.println("You've chosen to make a sale.");
@@ -73,17 +75,18 @@ public class Menu {
 
 
     private void makeSale(){
-        String date = inputDate();
-        appointments.showAvailableTimes(date);
-        System.out.println(appointments.showAvailableTimes(date));
+        String date = appointment.inputDate();
+        appointment.showAvailableTimes(date);
+        System.out.println(appointment.showAvailableTimes(date));
         int time = inputTime();
-        sale.addSale(date,time);
+
+        Sale.addSale(date,time);
         System.out.println("The sale has been added");
     }
 
     private void checkFinances(){
-        String date = inputDate();
-        System.out.println(sale.checkSale(date));
+        String date = appointment.inputDate();
+        System.out.println(Sale.checkSale(date));
     }
     private int inputTime(){
         System.out.print("Type the timeslot");

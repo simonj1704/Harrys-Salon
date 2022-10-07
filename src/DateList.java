@@ -1,9 +1,12 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DateList {
+    Scanner in = new Scanner(System.in);
     public static ArrayList<Date> dates = new ArrayList<Date>();
     public Date date = new Date();
     private int date1;
+    private String name;
 
     public DateList() {
         addAllDates();
@@ -72,7 +75,19 @@ public class DateList {
 
         return this.date1;
     }
-    //TODO do we need to change this?
+
+    String inputDate(){
+        boolean keepRunning = false;
+        System.out.print("Type the date to check D/M/Y: ");
+        String date = in.nextLine();
+        return date;
+    }
+
+    public String inputName(){
+        System.out.print("What is the name of the Customer: ");
+        name = in.nextLine();
+        return name;
+    }
 
     @Override
     public String toString() {
