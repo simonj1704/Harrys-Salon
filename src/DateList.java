@@ -88,10 +88,31 @@ public class DateList {
     }
 
     String inputDate() {
-        boolean keepRunning = false;
-        System.out.print("Type the date to check D/M/Y: ");
-        String date = in.nextLine();
-        return date;
+        String requestedDate;
+        boolean keepRunningDate = true;
+        do {
+            System.out.println("Enter requested date. 'DD/MM/YY'");
+            requestedDate = in.nextLine();
+            int year = 0;
+            int month = 0;
+            int day = 0;
+            if (requestedDate.contains("/")) {
+                String[] dateInput = requestedDate.split("/");
+                if (dateInput[0].matches("^[1-2]+$")) {
+                    month = Integer.parseInt(dateInput[0]);
+                }
+                if (dateInput[1].matches("^[1-2]+$")) {
+                    day = Integer.parseInt(dateInput[1]);
+                }
+                if (dateInput[2].matches("^[1-2]+$")) {
+                    year = Integer.parseInt(dateInput[2]);
+                }
+                if ((year > 0 && year < 99) && (month > 0 && month < 12) && (day > 0 && day < 31)) {
+                    keepRunningDate = false;
+                }
+            }
+        } while (keepRunningDate);
+        return requestedDate;
     }
 
     public String inputName() {
