@@ -65,19 +65,19 @@ public class Sale {
         date1.appointments.set(time - 10, new TimeSlot(totalPrice, productNames, customerName));
     }
 
-    private void makeSale(){
+    public void makeSale(){
         String date = dateList.inputDate();
         dateList.showAvailableTimes(date);
-        System.out.println(appointment.showAvailableTimes(date));
+        System.out.println(dateList.showAvailableTimes(date));
         int time = dateList.inputTime();
 
-        Sale.addSale(date,time);
+        addSale(date,time);
         System.out.println("The sale has been added");
     }
 
-    private void checkFinances(){
+    public void checkFinances(){
         String date = dateList.inputDate();
-        System.out.println(Sale.checkSale(date));
+        System.out.println(checkSale(date));
     }
 
     public void setDate(String input){

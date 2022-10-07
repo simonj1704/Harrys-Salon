@@ -22,6 +22,17 @@ public class DateList {
         }
     }
 
+    public Date showAvailableTimes(String input) {
+        setDate(input);
+        Date date1;
+        date1 = DateList.dates.get(this.date1);
+        return date1;
+    }
+
+    public void setDate(String input) {
+        date1 = checkDate(input);
+    }
+
     public int checkDate(String requestedDate) {
         String[] vacationDate = requestedDate.split("/");
         int yearTwoThousand = 8030;

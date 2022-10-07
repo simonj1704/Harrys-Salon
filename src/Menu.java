@@ -55,9 +55,11 @@ public class Menu {
                 }
                 case 4 -> {
                     System.out.println("You've chosen to make a sale.");
+                    sale.makeSale();
                 }
                 case 5 -> {
                     System.out.println("You've chosen to check the finances.");
+                    sale.checkFinances();
                 }
                 case 6 -> {
                     System.out.println("You've chosen the vacation menu.");

@@ -9,7 +9,7 @@ public class Appointments {
 
 
     public Date showAvailableTimes(String input) {
-        setDate(input);
+        dateList.setDate(input);
         Date date1;
         date1 = DateList.dates.get(date);
         return date1;
@@ -25,14 +25,14 @@ public class Appointments {
     }
 
     public void changeAppointment(int time, String name, String input) {
-        setDate(input); //TODO add scanner to this
+        dateList.setDate(input); //TODO add scanner to this
         Date date1;
         date1 = DateList.dates.get(date);
         date1.appointments.set(time - 10, new TimeSlot(name));
     }
 
     public void deleteAppointment(int time, String input) {
-        setDate(input);
+        dateList.setDate(input);
         Date date1;
 
         date1 = DateList.dates.set(date, DateList.dates.get(date));
@@ -40,22 +40,12 @@ public class Appointments {
     }
 
 
-    public void setDate(String input) {
-        date = dateList.checkDate(input);
-    }
-
     public String getName() {
         return name;
     }
 
     public int getDate(){
         return date;
-    }
-    @Override
-    public String toString() {
-        return "Appointments{" +
-                "dateList=" + dateList +
-                '}';
     }
 
     public void bookAppointment() {
@@ -94,4 +84,10 @@ public class Appointments {
         System.out.println("The time has been deleted");
     }
 
+    @Override
+    public String toString() {
+        return "Appointments{" +
+                "dateList=" + dateList +
+                '}';
+    }
 }
