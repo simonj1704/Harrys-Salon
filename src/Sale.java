@@ -27,6 +27,15 @@ public class Sale {
         return product;
     }
 
+    public boolean addCredit(){
+        System.out.println("Do you want to add Credit(yes/no): ");
+        if (in.nextLine().equals("yes")){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public String checkSale(String inputDate) {
         setDate(inputDate);
         Date date1;
@@ -37,7 +46,7 @@ public class Sale {
 
     public void addSale(String inputDate, int time) {
         ArrayList<String> productNames = new ArrayList<>();
-        Product product;
+        Product product = new Product();
         double productPrice = 0;
         String productName;
         String addSale;
@@ -62,10 +71,11 @@ public class Sale {
                 keepRunning = false;
             }
         } while (keepRunning);
-
+        boolean addCredit = addCredit();
+        product.setHasCredit(addCredit);
         Date date1 = DateList.dates.get(date);
         String customerName = date1.timeSlot.getCustomerName();
-        date1.appointments.set(time - 10, new TimeSlot(totalPrice, productNames, customerName));
+        date1.appointments.set(time - 10, new TimeSlot(totalPrice, productNames, customerName, product.hasCredit()));
     }
 
     public void setDate(String input){

@@ -15,10 +15,11 @@ public class TimeSlot {
         setCustomerName(name);
     }
 
-    public TimeSlot(double totalPrice, ArrayList<String> productNames, String customerName){
+    public TimeSlot(double totalPrice, ArrayList<String> productNames, String customerName, boolean hasCredit){
         setTotalPrice(totalPrice);
         setProductNames(productNames);
         setCustomerName(customerName);
+        this.hasCredit = hasCredit;
     }
 
     public String getCustomerName() {
@@ -29,10 +30,6 @@ public class TimeSlot {
         this.customerName = customerName;
     }
 
-    public boolean checkCredit() {
-
-        return checkCredit();
-    }
 
     public double getTotalPrice() {
         return totalPrice;
@@ -53,13 +50,19 @@ public class TimeSlot {
     public String printSales(){
         String output;
         String name;
+        String credit;
         if (getCustomerName().equals("Ledig tid")) {
             name = ConsoleColors.GREEN_BRIGHT + customerName + ConsoleColors.RESET;
         } else {
             name = ConsoleColors.RED_BRIGHT + ConsoleColors.RED_BOLD + customerName + ConsoleColors.RESET;
         }
+        if (hasCredit){
+            credit = ConsoleColors.GREEN_BRIGHT + hasCredit + ConsoleColors.RESET;
+        } else {
+            credit = ConsoleColors.RED_BRIGHT + hasCredit + ConsoleColors.RESET;
+        }
         output = name + "\tSale totalprice: " + ConsoleColors.YELLOW_BRIGHT + totalPrice + ConsoleColors.RESET
-                + " Products: " +  productNames.toString();
+                + "  Products: " +  productNames.toString() + "  Credit: " + credit;
         return output;
     }
     @Override
