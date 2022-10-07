@@ -2,15 +2,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Sale {
-    static Scanner in = new Scanner(System.in);
+
+    Scanner in = new Scanner(System.in);
     private double haircutPrice = 200;
     private int date;
     private double totalPrice;
-    static ProductList products = new ProductList();
+    ProductList products = new ProductList();
     DateList dateList = new DateList();
 
 
-    public Sale(){
+    public Sale() {
 
     }
 
@@ -35,7 +36,7 @@ public class Sale {
     }
 
     public void addSale(String inputDate, int time) {
-        ArrayList<String> productNames = new ArrayList<String>();
+        ArrayList<String> productNames = new ArrayList<>();
         Product product;
         double productPrice = 0;
         String productName;
@@ -63,21 +64,6 @@ public class Sale {
         Date date1 = DateList.dates.get(date);
         String customerName = date1.timeSlot.getCustomerName();
         date1.appointments.set(time - 10, new TimeSlot(totalPrice, productNames, customerName));
-    }
-
-    public void makeSale(){
-        String date = dateList.inputDate();
-        dateList.showAvailableTimes(date);
-        System.out.println(dateList.showAvailableTimes(date));
-        int time = dateList.inputTime();
-
-        addSale(date,time);
-        System.out.println("The sale has been added");
-    }
-
-    public void checkFinances(){
-        String date = dateList.inputDate();
-        System.out.println(checkSale(date));
     }
 
     public void setDate(String input){

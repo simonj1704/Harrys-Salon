@@ -3,8 +3,9 @@ import java.util.ArrayList;
 public class TimeSlot {
     private boolean hasCredit = false;
     private String customerName;
+
     private double totalPrice;
-    private ArrayList<String> productNames = new ArrayList<String>();
+    public ArrayList<String> productNames = new ArrayList<>();
 
     public TimeSlot() {
         customerName = "Ledig tid";
@@ -26,10 +27,6 @@ public class TimeSlot {
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
-    }
-
-    public void addSale(){
-
     }
 
     public boolean checkCredit() {
@@ -65,7 +62,6 @@ public class TimeSlot {
                 + " Products: " +  productNames.toString();
         return output;
     }
-
     @Override
     public String toString() {
         String output;
