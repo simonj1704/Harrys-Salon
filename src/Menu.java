@@ -28,7 +28,7 @@ public class Menu {
 
     int readInput() {
         do {
-            System.out.println("Enter a command.");
+            System.out.println("Enter a command: ");
             if (in.hasNextInt()) {
                 inputNumber = in.nextInt();
                 in.nextLine();
@@ -61,7 +61,17 @@ public class Menu {
                 }
                 case 5 -> {
                     System.out.println("You've chosen to check the finances.");
-                    checkFinances();
+                    boolean correctPassword = false;
+                    do {
+                        System.out.println("Enter password");
+                        if (in.nextLine().equals("hairyharry")){
+                            checkFinances();
+                            correctPassword = false;
+                        }else
+                            System.out.println("Password incorrect. Try again.");
+                        correctPassword = true;
+                    }while (correctPassword);
+
                 }
                 case 6 -> {
                     System.out.println("You've chosen the vacation menu.");
