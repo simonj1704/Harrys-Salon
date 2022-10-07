@@ -133,18 +133,49 @@ public class Menu {
         return name;
     }
 
+    String readDateInput() {
+        String requestedDate;
+        boolean keepRunningDate = true;
+        do {
+            System.out.println("Enter requested vacation date. 'DD/MM/YY'");
+            requestedDate = in.nextLine();
+            int year = 0;
+            int month = 0;
+            int day = 0;
+            if (requestedDate.contains("/")) {
+                String[] dateInput = requestedDate.split("/");
+                if (dateInput[1].matches("^[0-9]+$")) {
+                    month = Integer.parseInt(dateInput[1]);
+                }
+                if (dateInput[0].matches("^[0-9]+$")) {
+                    day = Integer.parseInt(dateInput[0]);
+                }
+                if (dateInput[2].matches("^[0-9]+$")) {
+                    year = Integer.parseInt(dateInput[2]);
+                }
+                if (year >= 20 && year <= 99) {
+                    if (month > 0 && month <= 12)
+                        if (day > 0 && day <= 31) {
+                            keepRunningDate = false;
+                        }
+                }
+            }
+        } while (keepRunningDate);
+        return requestedDate;
+    }
+
     private void vacationMenu() {
         System.out.println("Vacation Menu:");
         System.out.println("1. Book Vacation.");
         System.out.println("2. Delete Vacation.");
+        System.out.println("3. Return to Main Menu.");
         int input = in.nextInt();
         in.nextLine();
 
         switch (input) {
             case 1 -> {
                 System.out.println("You've chosen to Book Vacation.");
-                System.out.println("Enter requested vacation date. 'DD/MM/YY'");
-                String requestedDate = in.nextLine();
+                String requestedDate = readDateInput();
                 boolean possible = vacation.checkVacationDate(requestedDate);
                 if (possible) {
                     vacation.bookVacation(requestedDate);
@@ -154,8 +185,7 @@ public class Menu {
             }
             case 2 -> {
                 System.out.println("You've chosen to Delete Vacation");
-                System.out.println("Enter vacation date you want deleted. 'DD/MM/YY'");
-                String requestedDate = in.nextLine();
+                String requestedDate = readDateInput();
                 boolean placedVacation = vacation.checkVacationPlaced(requestedDate);
                 if (placedVacation) {
                     vacation.deleteVacation(requestedDate);
