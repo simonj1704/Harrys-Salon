@@ -18,13 +18,15 @@ public class Appointments {
         return date1;
     }
 
-    public Date[] showNextFourDays() {
-        Date[] date1 = new Date[4];
-        date1[0] = dateList.dates.get(date + 1);
-        date1[1] = dateList.dates.get(date + 2);
-        date1[2] = dateList.dates.get(date + 3);
-        date1[3] = dateList.dates.get(date + 4);
-        return date1;
+    public void showNextFourDays(String input) {
+        setDate(input);
+        System.out.println(dateList.dates.get(date + 1));
+        System.out.println();
+        System.out.println(dateList.dates.get(date + 2));
+        System.out.println();
+        System.out.println(dateList.dates.get(date + 3));
+        System.out.println();
+        System.out.println(dateList.dates.get(date + 4));
     }
 
     public void changeAppointment(int time, String name, String input) {

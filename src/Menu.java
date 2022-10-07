@@ -95,6 +95,11 @@ public class Menu {
     private void bookAppointment() {
         String date = readDateInput();
         System.out.println(appointments.showAvailableTimes(date));
+        System.out.println("Do you want to show more dates(yes/no): ");
+        if(in.nextLine().equals("yes")){
+            showNextDays(date);
+
+        } else {
         System.out.print("What time do you want to book: ");
         int time = in.nextInt();
         in.nextLine();
@@ -102,10 +107,15 @@ public class Menu {
         if(!date1.appointments.get(time -10).getCustomerName().equals("Ledig tid")){
             System.out.println("Unable to book this time");
         } else {
-        name = inputName();
-        appointments.changeAppointment(time, name, date);
-        System.out.println("The time has been booked");
+            name = inputName();
+            appointments.changeAppointment(time, name, date);
+            System.out.println("The time has been booked");
         }
+        }
+    }
+
+    private void showNextDays(String inputDate){
+        appointments.showNextFourDays(inputDate);
     }
 
     private void changeAppointment() {
