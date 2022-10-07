@@ -31,7 +31,7 @@ public class Sale {
     }
 
     public void checkSale() {
-
+        
     }
 
     public void addSale(String inputDate, int time) {
