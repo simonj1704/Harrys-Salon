@@ -7,9 +7,6 @@ public class Appointments {
     private static String name;
     static DateList dateList = new DateList();
 
-    public Appointments() {
-        DateList dateList1 = new DateList();
-    }
 
     public static Date showAvailableTimes(String input) {
         setDate(input);

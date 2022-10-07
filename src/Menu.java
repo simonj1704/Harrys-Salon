@@ -2,12 +2,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Menu {
-    private String name;
     Scanner in = new Scanner(System.in);
     Vacation vacation = new Vacation();
-    private String menuHeader;
-    private String leadText;
-    private String[] menuItems;
     int inputNumber;
     boolean keepRunning = true;
 

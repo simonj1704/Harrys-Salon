@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class ProductList {
     public ArrayList<Product> productList = new ArrayList<Product>();
-    Product product = new Product();
 
 
     public ProductList() {
