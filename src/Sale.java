@@ -23,7 +23,7 @@ public class Sale {
         int productChoice = in.nextInt();
         in.nextLine();
 
-        product = products.getProductList().get(productChoice);
+        product = products.getProductList().get(productChoice -1);
         return product;
     }
 
@@ -43,11 +43,13 @@ public class Sale {
         String addSale;
         boolean keepRunning = true;
 
+        totalPrice = haircutPrice;
         setDate(inputDate);
 
         do {
-            totalPrice = haircutPrice + productPrice;
-            System.out.println("Current Price: "  + totalPrice);
+            totalPrice = totalPrice + productPrice;
+            System.out.println("Current Price: "  + ConsoleColors.YELLOW_BRIGHT + totalPrice
+                    + ConsoleColors.RESET);
             System.out.println("Do you want to add a product? yes/no");
             addSale = in.nextLine();
 

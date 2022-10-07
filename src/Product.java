@@ -43,7 +43,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product: \n" + product +
-                " price: \n " + price;
+        return "\nProduct: " + ConsoleColors.BLUE_BOLD + product + ConsoleColors.RESET +
+                " Price: " + ConsoleColors.YELLOW_BRIGHT + price + ConsoleColors.RESET + "\n";
     }
 }
