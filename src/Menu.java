@@ -72,6 +72,19 @@ public class Menu {
     }
 
 
+    private void makeSale(){
+        String date = inputDate();
+        appointments.showAvailableTimes(date);
+        System.out.println(appointments.showAvailableTimes(date));
+        int time = inputTime();
+        sale.addSale(date,time);
+        System.out.println("The sale has been added");
+    }
+
+    private void checkFinances(){
+        String date = inputDate();
+        System.out.println(sale.checkSale(date));
+    }
     private int inputTime(){
         System.out.print("Type the timeslot");
         int time = in.nextInt();
