@@ -1,16 +1,20 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Menu {
+    private String name;
     Scanner in = new Scanner(System.in);
+    Appointments appointments = new Appointments();
     Vacation vacation = new Vacation();
+    private String menuHeader;
+    private String leadText;
+    private String[] menuItems;
     int inputNumber;
     boolean keepRunning = true;
 
     public Menu() {
     }
 
-    Appointments appointment = new Appointments();
-    Sale sale = new Sale();
 
     void printMenu() {
         System.out.println("Welcome to Harry's Salon. What would you like to do?");
@@ -43,34 +47,21 @@ public class Menu {
             switch (readInput()) {
                 case 1 -> {
                     System.out.println("You've chosen to book an appointment.");
-                    appointment.bookAppointment();
+                    bookAppointment();
                 }
                 case 2 -> {
                     System.out.println("You've chosen to change an appointment.");
-                    appointment.changeAppointment();
+                    changeAppointment();
                 }
                 case 3 -> {
                     System.out.println("You've chosen to delete an appointment.");
-                    appointment.deleteAppointment();
+                    deleteAppointment();
                 }
                 case 4 -> {
                     System.out.println("You've chosen to make a sale.");
-                    sale.makeSale();
                 }
                 case 5 -> {
-                    boolean correctPassword = false;
                     System.out.println("You've chosen to check the finances.");
-                    do {
-                        System.out.println("Please enter password:");
-                        if (in.nextLine().equals("hairyharry")){
-                            sale.checkFinances();
-                            correctPassword = true;
-                        }else{
-                            System.out.println("Incorrect password. Please try again");
-                            correctPassword = false;
-                        }
-                    }while (!correctPassword);
-
                 }
                 case 6 -> {
                     System.out.println("You've chosen the vacation menu.");
@@ -87,45 +78,73 @@ public class Menu {
         } while (!keepRunning);
     }
 
-    String readDateInput() {
-        String requestedDate;
-        boolean keepRunningDate = true;
-        do {
-            System.out.println("Enter requested vacation date. 'DD/MM/YY'");
-            requestedDate = in.nextLine();
-            int year = 0;
-            int month = 0;
-            int day = 0;
-            if (requestedDate.contains("/")) {
-                String[] dateInput = requestedDate.split("/");
-                if (dateInput[0].matches("^[1-2]+$")) {
-                    month = Integer.parseInt(dateInput[0]);
-                }
-                if (dateInput[1].matches("^[1-2]+$")) {
-                    day = Integer.parseInt(dateInput[1]);
-                }
-                if (dateInput[2].matches("^[1-2]+$")) {
-                    year = Integer.parseInt(dateInput[2]);
-                }
-                if ((year > 0 && year < 99) && (month > 0 && month < 12) && (day > 0 && day < 31)) {
-                    keepRunningDate = false;
-                }
-            }
-        } while (keepRunningDate);
-        return requestedDate;
+    private void bookAppointment() {
+        String date = inputDate();
+        System.out.println(appointments.showAvailableTimes(date));
+        System.out.print("What time do you want to book: ");
+        int time = in.nextInt();
+        in.nextLine();
+        Date date1 = DateList.dates.get(appointments.getDate());
+        if(!date1.appointments.get(time -10).getCustomerName().equals("Ledig tid")){
+            System.out.println("Unable to book this time");
+        } else {
+        name = inputName();
+        appointments.changeAppointment(time, name, date);
+        System.out.println("The time has been booked");
+        }
     }
 
+    private void changeAppointment() {
+        String date = inputDate();
+        System.out.println(appointments.showAvailableTimes(date));
+        System.out.print("What time do you want to change: ");
+        int time = in.nextInt();
+        in.nextLine();
+        String name = inputName();
+        appointments.changeAppointment(time, name,date);
+        System.out.println("The time has been changed");
+    }
+
+    private void deleteAppointment(){
+        String date = inputDate();
+        System.out.println(appointments.showAvailableTimes(date));
+        System.out.println("What time do you want to delete: ");
+        int time = in.nextInt();
+        appointments.deleteAppointment(time,date);
+        System.out.println("The time has been deleted");
+    }
+
+    private int inputTime(){
+        System.out.print("Type the timeslot");
+        int time = in.nextInt();
+        return time;
+
+    }
+
+    private String inputDate(){
+        System.out.print("Type the date to check D/M/Y: ");
+        String date = in.nextLine();
+        return date;
+    }
+
+    public String inputName(){
+        System.out.print("What is the name of the Customer: ");
+        name = in.nextLine();
+        return name;
+    }
 
     private void vacationMenu() {
         System.out.println("Vacation Menu:");
         System.out.println("1. Book Vacation.");
         System.out.println("2. Delete Vacation.");
-        System.out.println("3. Return to Main Menu.");
+        int input = in.nextInt();
+        in.nextLine();
 
-        switch (readInput()) {
+        switch (input) {
             case 1 -> {
                 System.out.println("You've chosen to Book Vacation.");
-                String requestedDate = readDateInput();
+                System.out.println("Enter requested vacation date. 'DD/MM/YY'");
+                String requestedDate = in.nextLine();
                 boolean possible = vacation.checkVacationDate(requestedDate);
                 if (possible) {
                     vacation.bookVacation(requestedDate);
@@ -135,7 +154,8 @@ public class Menu {
             }
             case 2 -> {
                 System.out.println("You've chosen to Delete Vacation");
-                String requestedDate = readDateInput();
+                System.out.println("Enter vacation date you want deleted. 'DD/MM/YY'");
+                String requestedDate = in.nextLine();
                 boolean placedVacation = vacation.checkVacationPlaced(requestedDate);
                 if (placedVacation) {
                     vacation.deleteVacation(requestedDate);
