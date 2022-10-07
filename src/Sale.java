@@ -14,7 +14,7 @@ public class Sale {
 
     }
 
-    public static Product addProduct() {
+    public Product addProduct() {
         Product product;
 
         System.out.println(products);
@@ -26,7 +26,7 @@ public class Sale {
         return product;
     }
 
-    public static String checkSale(String inputDate) {
+    public String checkSale(String inputDate) {
         setDate(inputDate);
         Date date1;
         date1 = DateList.dates.get(date);
@@ -34,7 +34,7 @@ public class Sale {
         return output;
     }
 
-    public static void addSale(String inputDate, int time) {
+    public void addSale(String inputDate, int time) {
         ArrayList<String> productNames = new ArrayList<String>();
         Product product;
         double productPrice = 0;
