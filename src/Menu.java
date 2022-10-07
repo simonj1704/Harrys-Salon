@@ -84,10 +84,9 @@ public class Menu {
         System.out.println("Vacation Menu:");
         System.out.println("1. Book Vacation.");
         System.out.println("2. Delete Vacation.");
-        int input = in.nextInt();
-        in.nextLine();
+        System.out.println("3. Return to Main Menu.");
 
-        switch (input) {
+        switch (readInput()) {
             case 1 -> {
                 System.out.println("You've chosen to Book Vacation.");
                 System.out.println("Enter requested vacation date. 'DD/MM/YY'");
