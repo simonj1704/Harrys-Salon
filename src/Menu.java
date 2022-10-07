@@ -130,7 +130,7 @@ public class Menu {
     }
 
     private int inputTime(){
-        System.out.print("Type the timeslot");
+        System.out.print("Type the timeslot: ");
         int time = in.nextInt();
         return time;
 
