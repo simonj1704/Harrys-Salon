@@ -76,17 +76,23 @@ public class DateList {
         return this.date1;
     }
 
-    String inputDate(){
+    String inputDate() {
         boolean keepRunning = false;
         System.out.print("Type the date to check D/M/Y: ");
         String date = in.nextLine();
         return date;
     }
 
-    public String inputName(){
+    public String inputName() {
         System.out.print("What is the name of the Customer: ");
         name = in.nextLine();
         return name;
+    }
+
+    private int inputTime() {
+        System.out.print("Type the timeslot");
+        int time = in.nextInt();
+        return time;
     }
 
     @Override

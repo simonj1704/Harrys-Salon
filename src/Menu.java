@@ -75,7 +75,7 @@ public class Menu {
 
 
     private void makeSale(){
-        String date = appointment.inputDate();
+        String date = date.inputDate();
         appointment.showAvailableTimes(date);
         System.out.println(appointment.showAvailableTimes(date));
         int time = inputTime();
@@ -88,12 +88,7 @@ public class Menu {
         String date = appointment.inputDate();
         System.out.println(Sale.checkSale(date));
     }
-    private int inputTime(){
-        System.out.print("Type the timeslot");
-        int time = in.nextInt();
-        return time;
 
-    }
 
     private void vacationMenu() {
         System.out.println("Vacation Menu:");
