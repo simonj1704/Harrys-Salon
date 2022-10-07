@@ -22,6 +22,17 @@ public class DateList {
         }
     }
 
+    public Date showAvailableTimes(String input) {
+        setDate(input);
+        Date date1;
+        date1 = DateList.dates.get(this.date1);
+        return date1;
+    }
+
+    public void setDate(String input) {
+        date1 = checkDate(input);
+    }
+
     public int checkDate(String requestedDate) {
         String[] vacationDate = requestedDate.split("/");
         int yearTwoThousand = 8030;
@@ -76,8 +87,44 @@ public class DateList {
         return this.date1;
     }
 
-    public ArrayList getDates(){
-        return dates;
+    String inputDate() {
+        String requestedDate;
+        boolean keepRunningDate = true;
+        do {
+            System.out.println("Enter requested date. 'DD/MM/YY'");
+            requestedDate = in.nextLine();
+            int year = 0;
+            int month = 0;
+            int day = 0;
+            if (requestedDate.contains("/")) {
+                String[] dateInput = requestedDate.split("/");
+                if (dateInput[0].matches("^[0-9]+$")) {
+                    month = Integer.parseInt(dateInput[0]);
+                }
+                if (dateInput[1].matches("^[0-9]+$")) {
+                    day = Integer.parseInt(dateInput[1]);
+                }
+                if (dateInput[2].matches("^[0-9]+$")) {
+                    year = Integer.parseInt(dateInput[2]);
+                }
+                if ((year > 0 && year < 99) && (month > 0 && month < 12) && (day > 0 && day < 31)) {
+                    keepRunningDate = false;
+                }
+            }
+        } while (keepRunningDate);
+        return requestedDate;
+    }
+
+    public String inputName() {
+        System.out.print("What is the name of the Customer: ");
+        name = in.nextLine();
+        return name;
+    }
+
+    public int inputTime() {
+        System.out.print("Type the timeslot: ");
+        int time = in.nextInt();
+        return time;
     }
 
     @Override
