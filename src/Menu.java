@@ -98,17 +98,20 @@ public class Menu {
             int day = 0;
             if (requestedDate.contains("/")) {
                 String[] dateInput = requestedDate.split("/");
-                if (dateInput[0].matches("^[1-2]+$")) {
-                    month = Integer.parseInt(dateInput[0]);
+                if (dateInput[1].matches("^[0-9]+$")) {
+                    month = Integer.parseInt(dateInput[1]);
                 }
-                if (dateInput[1].matches("^[1-2]+$")) {
-                    day = Integer.parseInt(dateInput[1]);
+                if (dateInput[0].matches("^[0-9]+$")) {
+                    day = Integer.parseInt(dateInput[0]);
                 }
-                if (dateInput[2].matches("^[1-2]+$")) {
+                if (dateInput[2].matches("^[0-9]+$")) {
                     year = Integer.parseInt(dateInput[2]);
                 }
-                if ((year > 0 && year < 99) && (month > 0 && month < 12) && (day > 0 && day < 31)) {
-                    keepRunningDate = false;
+                if (year >= 20 && year <= 99) {
+                    if (month > 0 && month <= 12)
+                        if (day > 0 && day <= 31) {
+                            keepRunningDate = false;
+                        }
                 }
             }
         } while (keepRunningDate);
