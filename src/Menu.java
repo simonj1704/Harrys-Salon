@@ -10,6 +10,7 @@ public class Menu {
     }
 
     Appointments appointment = new Appointments();
+    Sale sale = new Sale();
 
     void printMenu() {
         System.out.println("Welcome to Harry's Salon. What would you like to do?");
@@ -72,23 +73,6 @@ public class Menu {
             }
         } while (!keepRunning);
     }
-
-
-    private void makeSale(){
-        String date = date.inputDate();
-        appointment.showAvailableTimes(date);
-        System.out.println(appointment.showAvailableTimes(date));
-        int time = inputTime();
-
-        Sale.addSale(date,time);
-        System.out.println("The sale has been added");
-    }
-
-    private void checkFinances(){
-        String date = appointment.inputDate();
-        System.out.println(Sale.checkSale(date));
-    }
-
 
     private void vacationMenu() {
         System.out.println("Vacation Menu:");

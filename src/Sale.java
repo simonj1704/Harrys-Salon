@@ -3,9 +3,9 @@ import java.util.Scanner;
 
 public class Sale {
     static Scanner in = new Scanner(System.in);
-    private static double haircutPrice = 200;
-    private static int date;
-    private static double totalPrice;
+    private double haircutPrice = 200;
+    private int date;
+    private double totalPrice;
     static ProductList products = new ProductList();
     DateList dateList = new DateList();
 
@@ -65,7 +65,20 @@ public class Sale {
         date1.appointments.set(time - 10, new TimeSlot(totalPrice, productNames, customerName));
     }
 
+    private void makeSale(){
+        String date = dateList.inputDate();
+        dateList.showAvailableTimes(date);
+        System.out.println(appointment.showAvailableTimes(date));
+        int time = dateList.inputTime();
 
+        Sale.addSale(date,time);
+        System.out.println("The sale has been added");
+    }
+
+    private void checkFinances(){
+        String date = dateList.inputDate();
+        System.out.println(Sale.checkSale(date));
+    }
 
     public void setDate(String input){
         date = dateList.checkDate(input);

@@ -89,7 +89,7 @@ public class DateList {
         return name;
     }
 
-    private int inputTime() {
+    public int inputTime() {
         System.out.print("Type the timeslot");
         int time = in.nextInt();
         return time;
