@@ -122,6 +122,7 @@ public class Menu {
     }
 
     private String inputDate(){
+        boolean keepRunning = false;
         System.out.print("Type the date to check D/M/Y: ");
         String date = in.nextLine();
         return date;
