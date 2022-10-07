@@ -1,9 +1,12 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DateList {
+    Scanner in = new Scanner(System.in);
     public static ArrayList<Date> dates = new ArrayList<Date>();
     public Date date = new Date();
     private int date1;
+    private String name;
 
     public DateList() {
         addAllDates();
@@ -72,7 +75,6 @@ public class DateList {
 
         return this.date1;
     }
-    //TODO do we need to change this?
 
     public ArrayList getDates(){
         return dates;

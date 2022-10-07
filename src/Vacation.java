@@ -1,15 +1,6 @@
 
 public class Vacation {
     DateList dateList = new DateList();
-    private String vacationDay;
-
-    public String getVacationDay() {
-        return vacationDay;
-    }
-
-    public void setVacationDay(String vacationDay) {
-        this.vacationDay = vacationDay;
-    }
 
     public void bookVacation(String input){
         Date date1;

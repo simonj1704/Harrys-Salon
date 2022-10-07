@@ -6,9 +6,7 @@ public class Menu {
     Scanner in = new Scanner(System.in);
     Appointments appointments = new Appointments();
     Vacation vacation = new Vacation();
-    private String menuHeader;
-    private String leadText;
-    private String[] menuItems;
+    Sale sale = new Sale();
     int inputNumber;
     boolean keepRunning = true;
 
@@ -59,9 +57,11 @@ public class Menu {
                 }
                 case 4 -> {
                     System.out.println("You've chosen to make a sale.");
+                    makeSale();
                 }
                 case 5 -> {
                     System.out.println("You've chosen to check the finances.");
+                    checkFinances();
                 }
                 case 6 -> {
                     System.out.println("You've chosen the vacation menu.");
@@ -112,6 +112,21 @@ public class Menu {
         int time = in.nextInt();
         appointments.deleteAppointment(time,date);
         System.out.println("The time has been deleted");
+    }
+
+    public void makeSale(){
+        String date = inputDate();
+        appointments.showAvailableTimes(date);
+        System.out.println(appointments.showAvailableTimes(date));
+        int time = inputTime();
+
+        sale.addSale(date,time);
+        System.out.println("The sale has been added");
+    }
+
+    public void checkFinances(){
+        String date = inputDate();
+        System.out.println(sale.checkSale(date));
     }
 
     private int inputTime(){

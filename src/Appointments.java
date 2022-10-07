@@ -1,6 +1,8 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Appointments {
+    Scanner in = new Scanner(System.in);
     private int date;
     private String name;
     DateList dateList = new DateList();
@@ -26,7 +28,7 @@ public class Appointments {
     }
 
     public void changeAppointment(int time, String name, String input) {
-        setDate(input); //TODO add scanner to this
+        setDate(input);
         Date date1;
         date1 = dateList.dates.get(date);
         date1.appointments.set(time - 10, new TimeSlot(name));
