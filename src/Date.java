@@ -17,6 +17,15 @@ public class Date {
         return time;
     }
 
+    public String timesWithProducts() {
+        String time = "10:00: " + appointments.get(0).printSales() + "\n11:00: " + appointments.get(1).printSales() +
+                "\n12:00: " + appointments.get(2).printSales() + "\n13:00: " + appointments.get(3).printSales() +
+                "\n14:00: " + appointments.get(4).printSales() + "\n15:00: " + appointments.get(5).printSales() +
+                "\n16:00: " + appointments.get(6).printSales() + "\n17:00: " + appointments.get(7).printSales();
+        return time;
+    }
+
+
     @Override
     public String toString() {
         return times();

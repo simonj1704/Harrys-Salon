@@ -6,6 +6,7 @@ public class Menu {
     Scanner in = new Scanner(System.in);
     Appointments appointments = new Appointments();
     Vacation vacation = new Vacation();
+    Sale sale = new Sale();
     private String menuHeader;
     private String leadText;
     private String[] menuItems;
@@ -15,9 +16,9 @@ public class Menu {
     public Menu() {
     }
 
-
+    //TODO maybe make a back button
     void printMenu() {
-        System.out.println("Welcome to Harry's Salon. What would you like to do?");
+        System.out.println("\nWelcome to Harry's Salon. What would you like to do?");
         System.out.println("1. Book appointment");
         System.out.println("2. Change appointment");
         System.out.println("3. Delete appointment");
@@ -59,9 +60,11 @@ public class Menu {
                 }
                 case 4 -> {
                     System.out.println("You've chosen to make a sale.");
+                    makeSale();
                 }
                 case 5 -> {
                     System.out.println("You've chosen to check the finances.");
+                    checkFinances();
                 }
                 case 6 -> {
                     System.out.println("You've chosen the vacation menu.");
@@ -114,8 +117,23 @@ public class Menu {
         System.out.println("The time has been deleted");
     }
 
+    private void makeSale(){
+        String date = inputDate();
+        appointments.showAvailableTimes(date);
+        System.out.println(appointments.showAvailableTimes(date));
+        int time = inputTime();
+        sale.addSale(date,time);
+        System.out.println("The sale has been added");
+    }
+
+    private void checkFinances(){
+        String date = inputDate();
+        System.out.println(sale.checkSale(date));
+    }
+
+
     private int inputTime(){
-        System.out.print("Type the timeslot");
+        System.out.print("Type the timeslot: ");
         int time = in.nextInt();
         return time;
 
