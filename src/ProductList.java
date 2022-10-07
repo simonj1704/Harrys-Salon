@@ -21,8 +21,6 @@ public class ProductList {
 
     @Override
     public String toString() {
-        return "ProductList{" +
-                "productList=" + productList +
-                '}';
+        return "Productlist: " + productList;
     }
 }

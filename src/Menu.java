@@ -58,8 +58,19 @@ public class Menu {
                     sale.makeSale();
                 }
                 case 5 -> {
+                    boolean correctPassword = false;
                     System.out.println("You've chosen to check the finances.");
-                    sale.checkFinances();
+                    do {
+                        System.out.println("Please enter password:");
+                        if (in.nextLine().equals("hairyharry")){
+                            sale.checkFinances();
+                            correctPassword = true;
+                        }else{
+                            System.out.println("Incorrect password. Please try again");
+                            correctPassword = false;
+                        }
+                    }while (!correctPassword);
+
                 }
                 case 6 -> {
                     System.out.println("You've chosen the vacation menu.");
