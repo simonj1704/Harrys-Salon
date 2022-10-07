@@ -48,10 +48,6 @@ public class Appointments {
         return name;
     }
 
-    public void setName(String name) {
-        Appointments.name = name;
-    }
-
     public static int getDate(){
         return date;
     }

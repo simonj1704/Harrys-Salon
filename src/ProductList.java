@@ -19,11 +19,6 @@ public class ProductList {
         productList.add(new Product("Credit", true));
     }
 
-
-    public void addProduct(String product, double price) {
-        //TODO maybe
-    }
-
     @Override
     public String toString() {
         return "ProductList{" +
