@@ -62,11 +62,15 @@ public class Menu {
                 case 5 -> {
                     System.out.println("You've chosen to check the finances.");
                     boolean correctPassword = false;
+                    String input;
                     do {
-                        System.out.println("Enter password");
-                        if (in.nextLine().equals("hairyharry")){
+                        System.out.println("Enter password\nPress 9 for main menu");
+                        input = in.nextLine();
+                        if (input.equals("hairyharry")){
                             checkFinances();
                             correctPassword = false;
+                        }else if (input.equals("9")) {
+                            menu();
                         }else
                             System.out.println("Password incorrect. Try again.");
                         correctPassword = true;
