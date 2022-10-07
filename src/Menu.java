@@ -79,7 +79,7 @@ public class Menu {
     }
 
     private void bookAppointment() {
-        String date = inputDate();
+        String date = readDateInput();
         System.out.println(appointments.showAvailableTimes(date));
         System.out.print("What time do you want to book: ");
         int time = in.nextInt();
@@ -95,7 +95,7 @@ public class Menu {
     }
 
     private void changeAppointment() {
-        String date = inputDate();
+        String date = readDateInput();
         System.out.println(appointments.showAvailableTimes(date));
         System.out.print("What time do you want to change: ");
         int time = in.nextInt();
@@ -106,7 +106,7 @@ public class Menu {
     }
 
     private void deleteAppointment(){
-        String date = inputDate();
+        String date = readDateInput();
         System.out.println(appointments.showAvailableTimes(date));
         System.out.println("What time do you want to delete: ");
         int time = in.nextInt();
@@ -115,7 +115,7 @@ public class Menu {
     }
 
     public void makeSale(){
-        String date = inputDate();
+        String date = readDateInput();
         appointments.showAvailableTimes(date);
         System.out.println(appointments.showAvailableTimes(date));
         int time = inputTime();
@@ -125,7 +125,7 @@ public class Menu {
     }
 
     public void checkFinances(){
-        String date = inputDate();
+        String date = readDateInput();
         System.out.println(sale.checkSale(date));
     }
 
@@ -134,12 +134,6 @@ public class Menu {
         int time = in.nextInt();
         return time;
 
-    }
-
-    private String inputDate(){
-        System.out.print("Type the date to check D/M/Y: ");
-        String date = in.nextLine();
-        return date;
     }
 
     public String inputName(){
@@ -152,7 +146,7 @@ public class Menu {
         String requestedDate;
         boolean keepRunningDate = true;
         do {
-            System.out.println("Enter requested vacation date. 'DD/MM/YY'");
+            System.out.println("Enter requested date. 'DD/MM/YY'");
             requestedDate = in.nextLine();
             int year = 0;
             int month = 0;
