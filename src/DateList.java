@@ -74,10 +74,6 @@ public class DateList {
     }
     //TODO do we need to change this?
 
-    public ArrayList getDates(){
-        return dates;
-    }
-
     @Override
     public String toString() {
         return "DateList{" +
