@@ -56,11 +56,11 @@ public class Appointments {
         in.nextLine();
         Date date1 = DateList.dates.get(getDate());
         if(!date1.appointments.get(time -10).getCustomerName().equals("Ledig tid")){
-            System.out.println("Unable to book this time");
+            System.out.println("Time already booked, try a new one.");
         } else {
             name = dateList.inputName();
             changeAppointment(time, name, date);
-            System.out.println("The time has been booked");
+            System.out.println("The time has been booked.");
         }
     }
 
@@ -72,7 +72,7 @@ public class Appointments {
         in.nextLine();
         String name = dateList.inputName();
         changeAppointment(time, name,date);
-        System.out.println("The time has been changed");
+        System.out.println("The time has been changed.");
     }
 
     public void deleteAppointment(){
