@@ -15,7 +15,7 @@ public class Menu {
 
 
     void printMenu() {
-        System.out.println("Welcome to Harry's Salon. What would you like to do?");
+        System.out.println("\nWelcome to Harry's Salon. What would you like to do?");
         System.out.println("1. Book appointment");
         System.out.println("2. Change appointment");
         System.out.println("3. Delete appointment");
