@@ -2,11 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DateList {
-    Scanner in = new Scanner(System.in);
-    public static ArrayList<Date> dates = new ArrayList<Date>();
-    public Date date = new Date();
+    final Scanner in = new Scanner(System.in);
+    public static final ArrayList<Date> dates = new ArrayList<>();
     private int date1;
-    private String name;
 
     public DateList() {
         addAllDates();
@@ -42,42 +40,18 @@ public class DateList {
         int date1 = Integer.parseInt(vacationDate[0]);
 
         switch (month) {
-            case 1:
-                month = 0;
-                break;
-            case 2:
-                month = 31;
-                break;
-            case 3:
-                month = 59;
-                break;
-            case 4:
-                month = 90;
-                break;
-            case 5:
-                month = 120;
-                break;
-            case 6:
-                month = 151;
-                break;
-            case 7:
-                month = 181;
-                break;
-            case 8:
-                month = 212;
-                break;
-            case 9:
-                month = 243;
-                break;
-            case 10:
-                month = 273;
-                break;
-            case 11:
-                month = 304;
-                break;
-            case 12:
-                month = 334;
-                break;
+            case 1 -> month = 0;
+            case 2 -> month = 31;
+            case 3 -> month = 59;
+            case 4 -> month = 90;
+            case 5 -> month = 120;
+            case 6 -> month = 151;
+            case 7 -> month = 181;
+            case 8 -> month = 212;
+            case 9 -> month = 243;
+            case 10 -> month = 273;
+            case 11 -> month = 304;
+            case 12 -> month = 334;
         }
         if (Integer.parseInt(vacationDate[2]) % 4 == 0)
             month += 1;
@@ -115,17 +89,6 @@ public class DateList {
         return requestedDate;
     }
 
-    public String inputName() {
-        System.out.print("What is the name of the Customer: ");
-        name = in.nextLine();
-        return name;
-    }
-
-    public int inputTime() {
-        System.out.print("Type the timeslot: ");
-        int time = in.nextInt();
-        return time;
-    }
 
     @Override
     public String toString() {

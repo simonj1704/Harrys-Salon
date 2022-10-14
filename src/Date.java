@@ -11,18 +11,16 @@ public class Date {
     }
 
     public String times() {
-        String time = "10:00: " + appointments.get(0) + "\t 11:00: " + appointments.get(1) +
+        return "10:00: " + appointments.get(0) + "\t 11:00: " + appointments.get(1) +
                 "\t 12:00: " + appointments.get(2) + "\n13:00: " + appointments.get(3) + "\t 14:00: " + appointments.get(4)
                 + "\t 15:00: " + appointments.get(5) + "\n16:00: " + appointments.get(6) + "\t 17:00: " + appointments.get(7);
-        return time;
     }
 
     public String timesWithProducts() {
-        String time = "10:00: " + appointments.get(0).printSales() + "\n11:00: " + appointments.get(1).printSales() +
+        return "10:00: " + appointments.get(0).printSales() + "\n11:00: " + appointments.get(1).printSales() +
                 "\n12:00: " + appointments.get(2).printSales() + "\n13:00: " + appointments.get(3).printSales() +
                 "\n14:00: " + appointments.get(4).printSales() + "\n15:00: " + appointments.get(5).printSales() +
                 "\n16:00: " + appointments.get(6).printSales() + "\n17:00: " + appointments.get(7).printSales();
-        return time;
     }
 
 

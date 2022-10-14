@@ -3,12 +3,10 @@ import java.util.Scanner;
 
 public class Sale {
 
-    Scanner in = new Scanner(System.in);
-    private double haircutPrice = 200;
+    final Scanner in = new Scanner(System.in);
     private int date;
-    private double totalPrice;
-    ProductList products = new ProductList();
-    DateList dateList = new DateList();
+    final ProductList products = new ProductList();
+    final DateList dateList = new DateList();
 
 
     public Sale() {
@@ -29,19 +27,14 @@ public class Sale {
 
     public boolean addCredit(){
         System.out.println("Do you want to add Credit(yes/no): ");
-        if (in.nextLine().equals("yes")){
-            return true;
-        } else {
-            return false;
-        }
+        return in.nextLine().equals("yes");
     }
 
     public String checkSale(String inputDate) {
         setDate(inputDate);
         Date date1;
         date1 = DateList.dates.get(date);
-        String output = date1.timesWithProducts();
-        return output;
+        return date1.timesWithProducts();
     }
 
     public void addSale(String inputDate, int time) {
@@ -52,7 +45,7 @@ public class Sale {
         String addSale;
         boolean keepRunning = true;
 
-        totalPrice = haircutPrice;
+        double totalPrice = 200;
         setDate(inputDate);
 
         do {

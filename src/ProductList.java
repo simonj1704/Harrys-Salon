@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class ProductList {
-    public ArrayList<Product> productList = new ArrayList<Product>();
+    public final ArrayList<Product> productList = new ArrayList<>();
 
 
     public ProductList() {
@@ -29,8 +29,7 @@ public class ProductList {
     }
     @Override
     public String toString() {
-        String output = printOut();
-        return output;
+        return printOut();
     }
 
 }

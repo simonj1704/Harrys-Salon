@@ -59,9 +59,9 @@ public class TimeSlot {
         if (hasCredit){
             credit = ConsoleColors.GREEN_BRIGHT + hasCredit + ConsoleColors.RESET;
         } else {
-            credit = ConsoleColors.RED_BRIGHT + hasCredit + ConsoleColors.RESET;
+            credit = ConsoleColors.RED_BRIGHT + false + ConsoleColors.RESET;
         }
-        output = name + "\tSale totalprice: " + ConsoleColors.YELLOW_BRIGHT + totalPrice + ConsoleColors.RESET
+        output = name + "\tSale total price: " + ConsoleColors.YELLOW_BRIGHT + totalPrice + ConsoleColors.RESET
                 + "  Products: " +  productNames.toString() + "  Credit: " + credit;
         return output;
     }

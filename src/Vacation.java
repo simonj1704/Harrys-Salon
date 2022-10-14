@@ -1,6 +1,6 @@
 
 public class Vacation {
-    DateList dateList = new DateList();
+    final DateList dateList = new DateList();
 
     public void bookVacation(String input){
         Date date1;

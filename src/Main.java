@@ -1,5 +1,5 @@
 public class Main {
-    Menu menu = new Menu();
+    final Menu menu = new Menu();
 
     void run() {
         menu.menu();

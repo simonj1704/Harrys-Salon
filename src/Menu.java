@@ -1,12 +1,11 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Menu {
     private String name;
-    Scanner in = new Scanner(System.in);
-    Appointments appointments = new Appointments();
-    Vacation vacation = new Vacation();
-    Sale sale = new Sale();
+    final Scanner in = new Scanner(System.in);
+    final Appointments appointments = new Appointments();
+    final Vacation vacation = new Vacation();
+    final Sale sale = new Sale();
     int inputNumber;
     boolean keepRunning = true;
 
@@ -61,20 +60,19 @@ public class Menu {
                 }
                 case 5 -> {
                     System.out.println("You've chosen to check the finances.");
-                    boolean correctPassword = false;
                     String input;
                     do {
                         System.out.println("Enter password\nPress 9 for main menu");
                         input = in.nextLine();
                         if (input.equals("hairyharry")){
                             checkFinances();
-                            correctPassword = false;
+                            break;
                         }else if (input.equals("9")) {
                             menu();
-                        }else
-                            System.out.println("Password incorrect. Try again.");
-                        correctPassword = true;
-                    }while (correctPassword);
+                            break;
+                        }else {
+                            System.out.println("Password incorrect. Try again.");}
+                    }while (true);
 
                 }
                 case 6 -> {
@@ -85,9 +83,7 @@ public class Menu {
                     System.out.println("You've chosen to quit system.");
                     keepRunning = true;
                 }
-                default -> {
-                    System.out.println("Please enter a valid number.");
-                }
+                default -> System.out.println("Please enter a valid number.");
             }
         } while (!keepRunning);
     }
@@ -155,8 +151,7 @@ public class Menu {
 
     private int inputTime(){
         System.out.print("Type the timeslot: ");
-        int time = in.nextInt();
-        return time;
+        return in.nextInt();
 
     }
 
@@ -231,6 +226,4 @@ public class Menu {
         }
 
     }
-
-    //TODO make method for checking invalid date
 }
